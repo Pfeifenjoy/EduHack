@@ -151,9 +151,18 @@ p.error {
 
 .problem .headline {
   padding:10px;
-  padding-bottom: 30px;
   margin-bottom:20px;
-  background-color: #ddd;
+}
+
+.problem .headline:not(.mini) {
+   padding-bottom: 30px;
+    background-color: #ddd;
+}
+
+.problem .headline.mini {
+  padding:20px;
+  background-color: rgba(0,214,101,1);
+  border-radius: 15px;
 }
 
 .problem ul.hashtags {

@@ -70,6 +70,21 @@ class Hashtag
 	}
 	
 	/**
+	 * @param string $hashtag
+	 * @param int $max_distance
+	 * @return array:Hashtag
+	 */
+	public static function findManyByLevenshtein($hashtag, $max_distance = 3)
+	{
+		$db_result = DBHandler::getDB()->fetch_all("SELECT * FROM hashtags WHERE levenshtein(hashtag, ?) <= ?", array($hashtag, $max_distance));
+		$result = array();
+		foreach ($db_result as $entry) {
+			$result[] = new Hashtag($entry);
+		}
+		return $result;
+	}
+	
+	/**
 	 * Returns an array of all hashtags that correspond to the given question.
 	 * @param Question $question
 	 * @return array:Hashtag

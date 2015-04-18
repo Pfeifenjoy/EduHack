@@ -138,11 +138,8 @@ class Question implements JsonSerializable{
 		// tags
 		$hashtags = array();
 		foreach ($keywords as $keyword) {
-			$hashtag = Hashtag::findOneByHashtag($keyword);
-			if(!($hashtag===false))
-			{
-				$hashtags[] = $hashtag;
-			}
+			$levenshtein_hashtags = Hashtag::findManyByLevenshtein($keyword);
+			$hashtags = array_merge($hashtags, $levenshtein_hashtags);
 		}
 	
 		// questions with these tags

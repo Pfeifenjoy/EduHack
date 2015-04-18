@@ -1,0 +1,87 @@
+<?php
+/**
+ * Klasse für ein Hashtag.
+ * @author Tobias
+ */
+
+class Hashtag
+{
+	//---- private ----------------------------------------------------------------------------
+	
+	private $id;
+	private $hashtag;
+	
+	private function __construct($db_result)
+	{
+		$this->id = $db_result["id"];
+		$this->hashtag = $db_result["hashtag"];
+	}
+	
+	//---- public -----------------------------------------------------------------------------
+	
+	/**
+	 * @return int
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getHashtag()
+	{
+		return $this->hashtag;
+	}
+	
+	//---- public static ----------------------------------------------------------------------
+	
+	/**
+	 * Finds a hashtag by its id.
+	 * @param int $id
+	 * @return Hashtag
+	 */
+	public static function findOneById($id)
+	{
+		$result = DbHandler::getDb()->fetch_assoc("SELECT * FROM hashtags WHERE id = ?", array($id));
+		if($result === false) {
+			die();
+		}
+		else {
+			return new Hashtag($result);
+		}
+	}
+	
+	/**
+	 * Finds a hashtag in the database. If there is no matching entry in the database, false is returned.
+	 * @param string $hashtag
+	 * @return boolean|Hashtag
+	 */
+	public static function findOneByHashtag($hashtag)
+	{
+		$result = DbHandler::getDb()->fetch_assoc("SELECT * FROM hashtags WHERE hashtag = ?", array($hashtag));
+		if($result === false) {
+			return false;
+		}
+		else {
+			return new Hashtag($result);
+		}
+	}
+	
+	/**
+	 * Creates a new Hashtag
+	 * @param string $hashtag The name of the new hashtag.
+	 * @return Hashtag
+	 */
+	public static function create($hashtag)
+	{
+		DBHandler::getDB()->query("INSERT INTO hashtags (hashtag) VALUES (?)", array($hashtag));
+		$new_entry = DBHandler::getDB()->fetch_assoc("SELECT * FROM hashtags WHERE id = LAST_INSERT_ID()");
+		if($new_entry === false) {
+			die();
+		} else {
+			return new Hashtag($new_entry);
+		}
+	}
+}

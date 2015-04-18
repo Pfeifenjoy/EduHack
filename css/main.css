@@ -8,12 +8,11 @@ a {
 }
 
 #mainSearch {
-    margin-top: 25%;
+    margin-top: 10%;
 }
-
-#mainLogo {
-    width: 30%;
-
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
 }
 
 #mainsearch {

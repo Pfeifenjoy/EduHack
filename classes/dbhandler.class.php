@@ -1,5 +1,4 @@
 <?php
-require("db.class.php");
 // DB Handler
 class DBHandler {
     public static $db;

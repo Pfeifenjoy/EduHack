@@ -34,9 +34,9 @@ if(isset($_POST['register'])) {
         else {
             Error::showError();
         }
-        else {
+    }
+    else {
             Error::showError();
-        }
     }
 }
 

@@ -6,14 +6,11 @@ Author: Steffen Lindner
 
 
 class Login {
-    private $db;
     private $id;
     private $pw;
-    private $error;
     private $status = true;
     
-    public function __construct($db, $id, $pw) {
-        $this->db = $db;
+    public function __construct($id, $pw) {
         $this->id = $id;
         $this->pw = $pw;
     }
@@ -42,16 +39,10 @@ class Login {
             sha1($this->pw)
         )) == 1) {
 			
-            $data = DBHandler::getDB()->fetch_assoc("SELECT id, log_stat, affiliate, session_id, last_act, status, email, type, UNIX_TIMESTAMP(payed_til) as payed_til, username FROM account WHERE username = ?", array(
+            $data = DBHandler::getDB()->fetch_assoc("SELECT id, username, email FROM account WHERE (username = ? OR email = ?)", array(
+                $this->id, 
                 $this->id
-            ));
-			
-			
-			
-		
-				
-				
-		
+            ));	
 		
 			
             $_SESSION['username'] = $data['username'];

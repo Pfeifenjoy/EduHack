@@ -24,7 +24,8 @@
   </ul>
 </li>
 <li>Startseite Newsfeed</li>
-
+<li>Problemlösungsseite</li>
+<li>Ranking / Rankingsortierung</li>
 </ul>
 
 

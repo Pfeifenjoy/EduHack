@@ -22,13 +22,15 @@ a:hover {
 
 }
 #notificationArea {
-    position: absolute;
+   position: absolute;
    bottom: 0px;
    right: 0px;
    width: 5%;
    max-width: 200px;
    min-width: 300px;
-
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 6px 6px 6px rgba(200,200,200,0.5);
 }
 .accept-btn{
     margin-right: 30%;

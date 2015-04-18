@@ -80,6 +80,7 @@ DBHandler::initDB();
               </a>
                 <ul>
                     <li><a href="index.php?s=home">Suchen</a></li>
+                    <li><a href="index.php?s=ask">Fragen</a></li>
                     <?php echo isset($_SESSION['username']) ? '<li><a href="index.php?s=profile">Profil</li><li><a href="index.php?s=chats">Chats</li><li><a href="index.php?s=logout">Logout</a></li>' : '<li><a href="index.php?s=login">Login</a></li> <li><a href="index.php?s=register">Registrieren</a></li>';?>                    
                 </ul>
             </div>

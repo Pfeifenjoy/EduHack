@@ -5,7 +5,7 @@
                     </span>     
             </div>
             <div class="own-problem">
-                <p>… oder <a href="">erstelle ein neues Problem</a>.</p>
+                <p>… oder <a href="index.php?s=ask">erstelle ein neues Problem</a>.</p>
             </div>
 <div id="searchResults">
     <div class="row col-md-8" id="searchQuestions">

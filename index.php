@@ -39,9 +39,9 @@ DBHandler::initDB();
                 <img alt="Brand" src="img/logo_klein.png"/>
               </a>
                 <ul>
-                    <li><a href="index.php">Suchen</a></li>
+                    <li><a href="index.php?s=home">Suchen</a></li>
                     <li><a href="index.php?s=login">Login</a></li>
-                    <li><a>Registrieren</a></li>
+                    <li><a href="index.php?s=register">Registrieren</a></li>
                 </ul>
             </div>
           </div>

@@ -70,6 +70,21 @@ class Hashtag
 	}
 	
 	/**
+	 * Returns an array of all hashtags that correspond to the given question.
+	 * @param Question $question
+	 * @return array:Hashtag
+	 */
+	public static function findManyByQuestion(Question $question)
+	{
+		$db_result = DBHandler::getDB()->fetch_all("SELECT * FROM hashtags WHERE id IN (SELECT hashtag FROM questions_hashtags WHERE question = ?)", array($question->getId()));
+		$result = array();
+		foreach ($db_result as $entry) {
+			$result[] = new Hashtag($entry);
+		}
+		return $result;
+	}
+	
+	/**
 	 * Creates a new Hashtag
 	 * @param string $hashtag The name of the new hashtag.
 	 * @return Hashtag

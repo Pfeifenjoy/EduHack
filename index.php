@@ -33,8 +33,13 @@ DBHandler::initDB();
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <link rel="shortcut icon" href="img/logo_favicon.png" type="image/png" />
         <link rel="icon" href="img/logo_favicon.png" type="image/png" />
+        <?php
+        if(isset($_SESSION['username'])) {
+            echo '<script type="text/javascript" src="js/chat.js"></script>';
+        }
+        ?>
     </head>
-    <body>
+    <body <?php echo (isset($_SESSION['username'])) ? 'onload="WebSocketTest()"' : ''?>>
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -60,14 +65,13 @@ DBHandler::initDB();
             } 
 	       else {
              include(realpath('./sites/home.php'));
-           }
-	
-      
+           }     
             ?>
         </section>
         <div id="notification"></div>
         
         <script type="text/javascript" href="js/login.js"></script>
         <script type="text/javscript" href="js/notificator.js"></script>
+
     </body>
 </html>

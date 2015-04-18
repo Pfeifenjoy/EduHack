@@ -67,6 +67,14 @@ class Question {
 	{
 		DBHandler::getDB()->query("DELETE FROM questions_hashtags WHERE question = ? AND hashtag = ?", array($this->id, $hashtag->getId()));
 	}
+
+	/**
+	 * @return int
+	 */
+	public function getNrOfHashtags()
+	{
+		return DBHandler::getDB()->num_rows("SELECT * FROM hashtags WHERE id IN (SELECT hashtag FROM questions_hashtags WHERE question = ?)", array($this->id));
+	}
 	
 	//---- public static --------------------------------------------------------------------------------
 	
@@ -107,6 +115,67 @@ class Question {
 		foreach ($db_result as $entry) {
 			$result[] = new Question($entry);
 		}
+		return $result;
+	}
+	
+	/**
+	 * Returns a (properly ranked) list of search results (just with public solutions)
+	 * @param array:string $keywords
+	 */
+	public static function findManyByKeywords($keywords)
+	{
+		// tags
+		$hashtags = array();
+		foreach ($keywords as $keyword) {
+			$hashtag = Hashtag::findOneByHashtag($keyword);
+			if(!($hashtag===false))
+			{
+				$hashtags[] = $hashtag;
+			}
+		}
+	
+		// questions with these tags
+		$questions = array();
+		foreach ($hashtags as $hashtag)
+		{
+			$hashtag_questions = Question::findManyByHashtag($hashtag);
+			foreach ($hashtag_questions as $hashtag_question) {
+				if(isset($questions[$hashtag_question->getId()]))
+				{
+					$questions[$hashtag_question->getId()]["count"]++;
+				}
+				else
+				{
+					$questions[$hashtag_question->getId()] = array("count" => 1, "question" => $hashtag_question);
+				}
+			}
+		}
+	
+		// calculate the ranking = nr_of_matching_tags / nr_of_all_tags
+		foreach ($questions as &$question) {
+			$question["ranking"] = $question["count"] / $question["question"]->getNrOfHashtags();
+		}
+	
+		// sort for count/nr_tags
+		usort($questions, function ($a, $b){
+			if($a["ranking"] == $b["ranking"])
+			{
+				return 0;
+			}
+			return ($a["ranking"] > $b["ranking"])? -1 : 1;
+		});
+				
+		// filter for questions with public solutions
+		$result = array();
+		foreach ($questions as $question) {
+			$nr_public_solutions = DBHandler::getDB()->num_rows("SELECT * FROM solutions WHERE question = ? AND public = 1", array($question["question"]->getId()));
+			if($nr_public_solutions > 0)
+			{
+				$result[] = $question["question"];
+			}
+		}
+
+		//
 		return $result;
 	}
 	

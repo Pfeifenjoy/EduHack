@@ -41,8 +41,7 @@ DBHandler::initDB();
               </a>
                 <ul>
                     <li><a href="index.php?s=home">Suchen</a></li>
-                    <li><a href="index.php?s=login">Login</a></li>
-                    <li><a href="index.php?s=register">Registrieren</a></li>
+                    <?php echo isset($_SESSION['username']) ? '<li><a href="index.php?s=logout">Logout</a></li>' : '<li><a href="index.php?s=login">Login</a></li> <li><a href="index.php?s=register">Registrieren</a></li>';?>                    
                 </ul>
             </div>
           </div>
@@ -64,6 +63,9 @@ DBHandler::initDB();
       
             ?>
         </section>
+        <div id="notification"></div>
+        
         <script type="text/javascript" href="js/login.js"></script>
+        <script type="text/javscript" href="js/notificator.js"></script>
     </body>
 </html>

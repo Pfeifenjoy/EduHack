@@ -8,7 +8,6 @@ Autor: Steffen Lindner
 class Error {
 	public static $error = array();
     public static function showError() {
-		global $language;
     	for($i=0;$i<count(self::$error);$i++) {
         	echo '<p class="error">Fehler: '.self::$error[$i].'</p>';
 	    }

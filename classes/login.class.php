@@ -20,10 +20,12 @@ class Login {
     --------------------------------------------- */
     public function verifyLogin() {
         if (empty($this->id) || (!(RegEx::checkUsername($this->id)) && !(RegEx::checkEmail($this->id)))) {
+            Error::$error[] = "Bitte gib einen Usernamen oder eine Email an.";
             $this->status   = false;
         }
         
         if (empty($this->pw) || !(RegEx::checkPW($this->pw))) {
+            Error::$error[] = "Bitte gib ein Passwort ein.";
             $this->status   = false;
         }
         

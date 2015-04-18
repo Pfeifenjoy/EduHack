@@ -9,14 +9,16 @@ Author: Steffen Lindner
 class Register {
     private $id;
 	private $pw;
+    private $rePW;
 	private $email;
     private $status;
   
 	
-	public function __construct($id, $pw, $email) {
+	public function __construct($id, $pw, $repw, $email) {
 		$this->id = $id;
 		$this->pw = $pw;
 		$this->email = $email;
+        $this->rePW = $repw;
         $this->status = true;
     }
 	
@@ -25,16 +27,24 @@ class Register {
 	-----------------------------------------*/
 	public function verifyRegister() {
 		if(empty($this->id) || !(RegEx::checkUsername($this->id))) {
+            Error::$error[] = "Bitte gib einen Usernamen an.";
 			$this->status = false;
 		}
 		
 		if(empty($this->pw) || !(RegEx::checkPW($this->pw))) {
+            Error::$error[] = "Bitte gib ein Passwort an.";
 			$this->status = false;
 		}
 		
 		if(empty($this->email) || !(RegEx::checkEmail($this->email))) {
+            Error::$error[] = "Bitte gib eine Email an.";
 			$this->status = false;
 		}
+        
+        if($this->pw != $this->rePW || empty($this->rePW)) {
+            Error::$error[] = "Bitte wiederhole dein Passwort.";
+            $this->status = false;
+        }
 		
 		return $this->status;
 	}

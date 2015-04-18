@@ -54,12 +54,14 @@ $(document).delegate("form", "submit", function () {
     var href = $(this).attr('action');
     var rLink = href.substring(href.indexOf("=") + 1);
     var information = $('form').serialize();
+    console.log(information);
     $('section.container').html('<div id="loading"><img src="img/loading.gif" alt="laden" id="loader" /></div>');
     $.ajax({
         url: 'request.php?s=' + rLink,
         type: 'POST',
         data: information,
         success: function (result) {
+            console.log(result)
             $('img#loader').hide();
             $('section.container').html(result);
             window.location.hash = "s=" + rLink;

@@ -5,6 +5,7 @@ body {
 
 a {
     cursor: pointer !important;
+    color:rgba(0,146,69,1);
 }
 
 #mainSearch {
@@ -94,21 +95,27 @@ input.form-control {
     height:50px;
 }
 
-/* login ==============================*/
+/* login & register ==============================*/
 
-.login {
+.login, .register {
     margin-top:10%;
 }
 
-.login .btn.btn-primary {
+.login .btn.btn-primary, .register .btn.btn-primary {
     margin-top:10px;
     border:none;
 }
 
-.login img {
+.login img, .register img {
   margin:10px;
-  padding-top:5px;
   float:right;
   width:22%;
   max-width:150px;
+  margin-top:-42px;
 }
+
+p.error {
+  color:rgba(237,28,36,1);
+  font-style: italic;
+}
+

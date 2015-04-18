@@ -145,12 +145,6 @@ p.success {
 
 /* problem ==============================*/
 
-
-.problem .col-md-3 {
-  padding: 0 15px;
-  background-color: white;
-}
-
 .problem .headline {
   padding:10px;
   margin-bottom:20px;
@@ -191,6 +185,11 @@ p.success {
 
 
 /* sidebar user stuffs ==============================*/
+
+.problem .col-md-3, .side {
+  padding: 0 15px;
+  background-color: white;
+}
 
 .side .user-img {
   margin-top:15px;

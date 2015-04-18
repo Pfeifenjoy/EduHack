@@ -132,11 +132,15 @@ input.form-control {
   margin-top:-112px;
 }
 
-p.error {
+p.error, p.success {
   color:rgba(237,28,36,1);
   font-style: italic;
+  margin-top:5px;
 }
 
+p.success {
+    color:rgba(0,146,69,1);
+}
 .clear {
   clear:both;
 }

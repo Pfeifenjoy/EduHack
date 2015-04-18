@@ -86,24 +86,4 @@ class Register {
      }
 }
 
-// reg test
-
-DBHandler::initDB();
-
-$reg = new Register("ne4y", "test123", "test1234@web.de");
-
-if($reg->verifyRegister()) {
-    if($reg->register()) {
-        echo 'registriert';
-    }
-    else {
-        Error::showError();
-    }
-    
-}
-else {
-    Error::showError();
-}
-    
-    
 ?>

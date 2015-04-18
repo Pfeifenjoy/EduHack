@@ -33,9 +33,41 @@ DBHandler::initDB();
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <link rel="shortcut icon" href="img/logo_favicon.png" type="image/png" />
         <link rel="icon" href="img/logo_favicon.png" type="image/png" />
+        <script src="js/notify.js"></script>
         <?php
         if(isset($_SESSION['username'])) {
-            echo '<script type="text/javascript" src="js/chat.js"></script>';
+            echo '<script type="text/javascript">function WebSocketTest() {
+     var ws = new WebSocket("ws://127.0.0.1:9999");
+     
+     ws.onopen = function()    {
+        // Web Socket is connected, send data using send()
+        console.log("connected");
+         ws.send("ID:" + "'.base64_encode($_SESSION['user_id']).'");
+         console.log("Autoisierungskey gesendet");
+     };
+      
+     ws.onmessage = function (msg)     { 
+        var received_msg = msg.data;
+        console.log("Message is received:" + msg.data);
+        split = msg.data.split("@");
+        
+        $.ajax({
+        url: "request.php?s=getID&id=" + split[2],
+        success: function (result) {
+       
+            notify("Sie haben eine neue Nachricht von " + result + " erhalten.")
+        }
+    });
+        
+        
+        
+     };
+      
+     ws.onclose = function()     { 
+        // websocket is closed.
+        console.log("connection closed");
+     };
+  }</script>';
         }
         ?>
     </head>
@@ -48,7 +80,7 @@ DBHandler::initDB();
               </a>
                 <ul>
                     <li><a href="index.php?s=home">Suchen</a></li>
-                    <?php echo isset($_SESSION['username']) ? '<li><a href="index.php?s=profile">Profil</li><li><a href="index.php?s=logout">Logout</a></li>' : '<li><a href="index.php?s=login">Login</a></li> <li><a href="index.php?s=register">Registrieren</a></li>';?>                    
+                    <?php echo isset($_SESSION['username']) ? '<li><a href="index.php?s=profile">Profil</li><li><a href="index.php?s=chats">Chats</li><li><a href="index.php?s=logout">Logout</a></li>' : '<li><a href="index.php?s=login">Login</a></li> <li><a href="index.php?s=register">Registrieren</a></li>';?>                    
                 </ul>
             </div>
           </div>
@@ -71,10 +103,10 @@ DBHandler::initDB();
         <div id="notification"></div>
         
         <script type="text/javascript" href="js/login.js"></script>
-        <script type="text/javscript" href="js/notificator.js"></script>
+       
 
         <div id="notificationArea">
         </div>
-        <script src="js/notify.js"></script>
+        
     </body>
 </html>

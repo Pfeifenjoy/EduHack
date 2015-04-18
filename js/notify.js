@@ -2,7 +2,7 @@ function notify(text) {
     var notifyArea = $('#notificationArea');
     if(notifyArea) {
 
-        var notification = '<div class="alert alert-info" role="alert">' + text
+        var notification = '<div class="notification" role="alert">' + text
             + '<br />'
             + '<button class="btn btn-success accept-btn">Anzeigen</button>'
             + '<button class="btn btn-danger ignore-btn">Ignorieren</button>'

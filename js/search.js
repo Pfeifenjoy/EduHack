@@ -1,10 +1,10 @@
 
-function addQuestionResult() {
+function addQuestionResult(question) {
     var destination = $('#searchQuestions');
     if(destination) {
 
         var name = "Test";
-        var description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
+        var description = question.question ;
 
         var tag = '<div class="col-md-6">'
            + '<div class="thumbnail">'
@@ -41,8 +41,14 @@ function addContactsResult(){
     }
 }
 $(document).delegate("input", "keydown",  function() {
-    addContactsResult();
-    addQuestionResult(); 
+    $.ajax({
+        url: 'ajax/search_questions.php?q=' +  $(this).val().replace(' ', '+'),
+        success: function(result) {
+            result.forEach(function(r) {
+                addQuestionResult(r);
+            });
+        }
+    });
 });
 
 $(document).delegate(".delete-btn", "click", function() {

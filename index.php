@@ -27,20 +27,23 @@ DBHandler::initDB();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="js/navi.js"></script>
         <script src="js/page.js"></script>
+        <script src="js/main.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="shortcut icon" href="img/logo_favicon.png" type="image/png" />
+        <link rel="icon" href="img/logo_favicon.png" type="image/png" />
     </head>
     <body>
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.php?s=home">
+              <a class="navbar-brand" href="index.php?s=home" id="logo" >
                 <img alt="Brand" src="img/logo_klein.png"/>
               </a>
                 <ul>
                     <li><a href="index.php?s=home">Suchen</a></li>
-                    <?php echo isset($_SESSION['username']) ? '<li><a href="index.php?s=logout">Logout</a></li>' : '<li><a href="index.php?s=login">Login</a></li> <li><a href="index.php?s=register">Registrieren</a></li>';?>                    
+                    <?php echo isset($_SESSION['username']) ? '<li><a href="index.php?s=profile">Profil</li><li><a href="index.php?s=logout">Logout</a></li>' : '<li><a href="index.php?s=login">Login</a></li> <li><a href="index.php?s=register">Registrieren</a></li>';?>                    
                 </ul>
             </div>
           </div>

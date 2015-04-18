@@ -397,3 +397,52 @@ footer a {
 }
 
 
+/* Ask question page =========================*/
+
+#matching-persons
+{
+	margin-top: 20px;
+}
+
+#matching-persons .person-container
+{
+}
+
+#matching-persons .person img
+{
+	margin: 10px;
+	border-radius: 100%;
+	float: left;
+	width: 4em;
+	height: 4em;
+}
+
+
+#matching-persons .person section
+{
+}
+
+
+#matching-persons .person section h3
+{
+	margin-top: 10px;
+	padding: 0.5em 0 0.5em 0;
+	font-size: 2em;
+	word-wrap: break-word;
+}
+
+#matching-persons .person section p
+{
+	margin: 10px;
+	color: #555;
+}
+
+#matching-persons .person section button
+{
+	margin: 10px;
+}
+
+#ask-public
+{
+	padding: 10px;
+}

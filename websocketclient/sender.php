@@ -3,7 +3,7 @@
 $host = '127.0.0.1';  //where is the websocket server
 $port = 9999; 
 $local = "http://www.example.com/";  //url where this script run
-$data = 'SOK@test@52@72';  //data to be send
+$data = 'SOK@test@2@'.$_GET['to'].'@1';  //data to be send
 
 $head = "GET / HTTP/1.1"."\r\n".
     "Host: $host"."\r\n".

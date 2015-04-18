@@ -32,12 +32,12 @@ DBHandler::initDB();
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="index.php">
                 <img alt="Brand" src="img/logo_klein.png"/>
               </a>
                 <ul>
-                    <li><a>Suchen</a></li>
-                    <li><a>Login</a></li>
+                    <li><a href="index.php">Suchen</a></li>
+                    <li><a href="index.php?s=login">Login</a></li>
                     <li><a>Registrieren</a></li>
                 </ul>
             </div>
@@ -60,5 +60,6 @@ DBHandler::initDB();
       
             ?>
         </section>
+        <script type="text/javascript" href="js/login.js"></script>
     </body>
 </html>

@@ -40,7 +40,7 @@ $(document).ready(function () {
                     $('img#loader').hide();
                     $('section.container').html(result);
                     window.location.hash = "s=" + rLink;				
-                }, 1000);
+                }, 500);
             }			
         });
 		

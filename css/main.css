@@ -93,3 +93,22 @@ ul {
 input.form-control {
     height:50px;
 }
+
+/* login ==============================*/
+
+.login {
+    margin-top:10%;
+}
+
+.login .btn.btn-primary {
+    margin-top:10px;
+    border:none;
+}
+
+.login img {
+  margin:10px;
+  padding-top:5px;
+  float:right;
+  width:22%;
+  max-width:150px;
+}

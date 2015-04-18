@@ -7,7 +7,8 @@
             <div class="own-problem">
                 <p>… oder <a href="">erstelle ein neues Problem</a>.</p>
             </div>
-
-<div class="row" id="searchResults">
+<div id="searchResults">
+    <div class="row col-md-8" id="searchQuestions">
+    </div>
+    <div class="row col-md-4" id="searchContacts"></div>
 </div>
-

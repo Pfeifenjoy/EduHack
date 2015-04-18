@@ -21,8 +21,10 @@ if(isset($_POST['register'])) {
 
 ?>
 
-<div class="login">
-  <h1>Register to SolveIt</h1>
+<div class="register">
+    <img src="img/login_bild.png" />
+    <p>Willkommen bei SolveIt!<br />
+      Wir freuen uns, dass du ein Teil unserer Community werden möchtest. Bitte gib dazu deine Nutzerdaten an.</p>
   <form method="post" action="index.php?s=register">
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">@</span>
@@ -42,7 +44,7 @@ if(isset($_POST['register'])) {
     <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
         <input name="repw" type="password" class="form-control" placeholder="Password wiederholen" aria-describedby="basic-addon1">
-    </div>
+    <div>
     <input class="btn btn-primary" type="submit" value="Register" />
   </form>
 </div>

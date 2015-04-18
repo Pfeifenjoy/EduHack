@@ -5,6 +5,15 @@ body {
 
 a {
     cursor: pointer !important;
+    color:rgba(0,146,69,1);
+}
+
+a:hover {
+    -moz-transition:color .2s ease-in-out;
+    -o-transition:color .2s ease-in-out;
+    -webkit-transition:color .2s ease-in-out;
+    cursor: pointer !important;
+    color: rgba(0,214,101,1);
 }
 
 #mainSearch {
@@ -22,6 +31,10 @@ a {
 
 .navbar-brand {
     padding-top: 3px;
+}
+
+.own-problem {
+    margin-top:10px;
 }
 
 .navbar:not(.navbar-nav), .navbar-default {
@@ -88,4 +101,36 @@ ul {
 
 input.form-control {
     height:50px;
+}
+
+/* login & register ==============================*/
+
+.login, .register {
+    margin-top:10%;
+}
+
+.login .btn.btn-primary, .register .btn.btn-primary {
+    margin-top:10px;
+    border:none;
+}
+
+.login p, .register p {
+  width:70%;
+}
+
+.login img, .register img {
+  margin:10px;
+  float:right;
+  width:22%;
+  max-width:150px;
+  margin-top:-112px;
+}
+
+p.error {
+  color:rgba(237,28,36,1);
+  font-style: italic;
+}
+
+.clear {
+  clear:both;
 }

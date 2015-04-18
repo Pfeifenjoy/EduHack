@@ -35,27 +35,18 @@ DBHandler::initDB();
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="index.php">
                 <img alt="Brand" src="img/logo_klein.png"/>
               </a>
                 <ul>
-                    <li><a>Suchen</a></li>
-                    <li><a>Login</a></li>
+                    <li><a href="index.php">Suchen</a></li>
+                    <li><a href="index.php?s=login">Login</a></li>
                     <li><a>Registrieren</a></li>
                 </ul>
             </div>
           </div>
         </nav>
         <section class="container">
-            <div class="input-group" id="mainSearch">
-                <input type="text" class="form-control" placeholder="Gib hier dein Problem ein!">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Los!</button>
-                    </span>     
-            </div>
-            <div class="own-problem">
-                <p>… oder <a href="">erstelle dein eigenes Problem</a>.</p>
-            </div>
             <?php	
             if(isset($_GET['s']) && !empty($_GET['s'])) {
                 if(file_exists(realpath('./sites/')."/".$_GET['s'].".php")) {
@@ -66,11 +57,12 @@ DBHandler::initDB();
                 }
             } 
 	       else {
-             include(realpath('./sites/register.php'));
+             include(realpath('./sites/home.php'));
            }
 	
       
             ?>
         </section>
+        <script type="text/javascript" href="js/login.js"></script>
     </body>
 </html>

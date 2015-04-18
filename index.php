@@ -27,7 +27,7 @@ DBHandler::initDB();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="js/navi.js"></script>
         <script src="js/page.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/search.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css" type="text/css">

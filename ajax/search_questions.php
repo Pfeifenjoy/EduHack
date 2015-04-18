@@ -11,7 +11,7 @@ if(isset($_GET["q"]))
 	$q = $_GET["q"];
 	$keywords = explode(' ', $q);
 	$search_result = Question::findManyByKeywords($keywords);
-	header('Content-Type: application/json');
+	header('Content-Type: application/json; charset=utf-8');
 	echo json_encode($search_result);
 }
 else

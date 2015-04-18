@@ -16,3 +16,4 @@ $(document).delegate(".ignore-btn", "click", function() {
 });
 
 notify("Test");
+notify("Test2");

@@ -33,4 +33,8 @@ function addMessage(message) {
         container.append(newMessage);
     }
 }
+$(document).delegate("button#chatSend", "click", function() {
+    var message = $(this).val();
+    var userId = $('#sessionId').val();
 
+});

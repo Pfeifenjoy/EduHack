@@ -10,18 +10,6 @@ if ($d['user2'] != $_SESSION['user_id']) {
 } else {
     $usernames[strval($d['user1'])] = $c->getUserNameById($d['user1']);
 }
-
-?><section class="chat-background">
-          <div class="container">
-            <div class="chat">
-                <div class="col-md-9" id="messageDisplay" >
-                  <!--<div class="col-md-12 post clear">
-                    <div class="col-md-2">
-                      <div class="user1 user-data">
-                        <img src="img/login_bild.png" alt="Benutzerbild" />
-                        <a href="">Username</a>
-                      </div>
-                    </div>
 ?>
 
 
@@ -73,35 +61,6 @@ if ($d['user2'] != $_SESSION['user_id']) {
 ?>
                   </div>
           </div>
-                <!-- <div class="col-md-12 post clear">
-                    <div class="col-md-10 content">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                  </div>
-                  
-                  <div class="col-md-2">
-                      <div class="user2 user-data">
-                        <img src="img/login_bild.png" alt="Benutzerbild" />
-                        <a href="">Username</a>
-                      </div>
-                    </div>
-                </div>                     
-                  
-                  <div class="col-md-12 post clear">
-                    <div class="col-md-2">
-                      <div class="user1 user-data">
-                        <img src="img/login_bild.png" alt="Benutzerbild" />
-                        <a href="">Username</a>
-                      </div>
-                    </div>
-                    <div class="col-md-10 content">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-                  </div>
-                </div> 
-                  
-                </div>
-            
-                </div>
--->
         </div>
                 <div class="col-md-3 side">
                   <div class="headline">
@@ -124,7 +83,9 @@ if ($d['user2'] != $_SESSION['user_id']) {
           <div class="col-md-12">
               <input type="text" class="form-control" placeholder="Schreibe deine Antwort">
                 <span class="input-group-btn">
-                    <button class="btn btn-default yellow" type="button">Absenden</button>
+                    <button id="chatSend" class="btn btn-default yellow" type="button">Absenden</button>
+                    <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" id="sessionId" />
+                    <!--<input type="hidden" value='<?php echo ($d["user1"] == $_SESSION["user_id"]) ? "$d['user2']" : "$d['user1']"; ?>' id="sessionId" />-->
                 </span>
             
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />

@@ -7,3 +7,6 @@
             <div class="own-problem">
                 <p>… oder <a href="">erstelle dein eigenes Problem</a>.</p>
             </div>
+
+<div class="row" id="searchResults">
+</div>

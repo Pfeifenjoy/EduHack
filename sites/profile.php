@@ -22,4 +22,18 @@
     <br />
     <a class="btn btn-primary">Chat starten</a>
 </div>
-
+<div class="clear"></div>
+<div>
+    <h3>Kompetenzen</h3>
+    <span class="label label-default">essen</span>
+    <br />
+    <br />
+    <form method="post" action="" class="col-md-4" id="addCompetence">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="neue Kompetenz" />
+            <span class="input-group-btn">
+                <input type="submit" class="btn btn-primary" value="Hinzufügen" />
+            </span>
+        </div>
+    </form>
+</div>

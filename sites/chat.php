@@ -8,7 +8,7 @@ var_dump($chatMessages);
 ?><section class="chat-background">
           <div class="container">
             <div class="chat">
-                <div class="col-md-9">
+                <div class="col-md-9" id="messageDisplay" >
                   <!--<div class="col-md-12 post clear">
                     <div class="col-md-2">
                       <div class="user1 user-data">

@@ -31,7 +31,7 @@ if(isset($_POST['login'])) {
 
     <div class="input-group">
         <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
-        <input name="pw" type="text" class="form-control" placeholder="Passwort" aria-describedby="basic-addon1">
+        <input name="pw" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
     </div>
 
     <input class="btn btn-primary" type="submit" value="Login" />

@@ -25,6 +25,9 @@ DBHandler::initDB();
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="js/navi.js"></script>
+        <script src="js/page.js"></script>
+        <link rel="stylesheet" href="css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css" type="text/css">
     </head>

@@ -9,6 +9,7 @@ if(isset($_SESSION['username'])) {
     
     foreach($d as $e) {
        ?>
+<a href="index.php?s=chat&id=<?php echo $e['id'];?>"" style="color:black;">
 <div class="col-md-3 side">
     <div class="user-img" style="width:50%; margin:0px auto; padding-top:10px;"><img src="img/login_bild.png" style="margin:0px auto;" alt="Benutzerbild" /></div>
     <div class="user-data">
@@ -17,7 +18,7 @@ if(isset($_SESSION['username'])) {
         <a href="">★★★☆☆</a>
     </div>
     <div class="spacer"></div>
-</div>
+    </div></a>
     <?php
     }
     

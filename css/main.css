@@ -21,6 +21,18 @@ a:hover {
     width: 30%;
 
 }
+#notificationArea {
+    position: absolute;
+   bottom: 0px;
+   right: 0px;
+   width: 5%;
+   max-width: 200px;
+   min-width: 300px;
+
+}
+.accept-btn{
+    margin-right: 30%;
+}
 
 #mainsearch {
     margin-top:15%;

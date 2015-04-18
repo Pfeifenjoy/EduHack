@@ -69,5 +69,9 @@ DBHandler::initDB();
         
         <script type="text/javascript" href="js/login.js"></script>
         <script type="text/javscript" href="js/notificator.js"></script>
+
+        <div id="notificationArea">
+        </div>
+        <script src="js/notify.js"></script>
     </body>
 </html>

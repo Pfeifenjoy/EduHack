@@ -3,16 +3,14 @@ function addQuestionResult(question) {
     var destination = $('#searchQuestions');
     if(destination) {
 
-        var name = "Test";
         var description = question.question ;
 
         var tag = '<div class="col-md-6">'
            + '<div class="thumbnail">'
            + '<img src="">'
            + '<div class="caption">'
-           + '<h3>' + name + '</h3>'
            + '<p>' + description + '</p>'
-           + '<p><a class="btn btn-primary" role="button">Kontaktieren</a> <a class="btn btn-danger delete-btn" role="button">Löschen</a></p>'
+           + '<p><a class="btn btn-primary" role="button">Anzeigen</a> <a class="btn btn-danger delete-btn" role="button">Löschen</a></p>'
            + '</div>'
            + '</div>'
            + '</div> ';

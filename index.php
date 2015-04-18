@@ -51,6 +51,7 @@ DBHandler::initDB();
                         <button class="btn btn-default" type="button">Go!</button>
                     </span>
             </div>
+<<<<<<< HEAD
             <?php	
             if(isset($_GET['s']) && !empty($_GET['s'])) {
                 if(file_exists(realpath('./sites/')."/".$_GET['s'].".php")) {
@@ -64,6 +65,10 @@ DBHandler::initDB();
              include(realpath('./sites/register.php'));
            }
 	
+=======
+            <?php
+                include("sites/register.php");
+>>>>>>> 21bfe51676fd9b5663c18603ada7cbc2b77cdc01
             ?>
         </section>
     </body>

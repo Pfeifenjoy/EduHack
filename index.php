@@ -40,7 +40,7 @@
                     </span>
             </div>
             <?php
-                include("sites/login.php");
+                include("sites/register.php");
             ?>
         </section>
     </body>

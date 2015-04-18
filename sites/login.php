@@ -20,10 +20,12 @@ if(isset($_POST['login'])) {
 ?>
 
 <div class="login">
-    <img src="img/login_bild.png" />
+  <div>
     <p>Willkommen zurück!<br />
       Bitte logge dich mit deinen Nutzerdaten ein.</p>
-  <form method="post" action="index.html">
+    <img src="img/login_bild.png" />
+  </div>
+  <form method="post" class="clear" action="index.html">
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">@</span>
         <input name="id" type="text" class="form-control" placeholder="Username oder Email" aria-describedby="basic-addon1">

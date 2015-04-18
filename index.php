@@ -42,7 +42,6 @@ DBHandler::initDB();
             </div>
           </div>
         </nav>
-<<<<<<< HEAD
         <section class="container">
             <div id="mainsearch">
                 <div class="input-group">

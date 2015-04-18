@@ -105,6 +105,12 @@ input.form-control {
 
 /* login & register ==============================*/
 
+#loading {
+  width:200px;
+  height:200px;
+  margin: 15px auto;
+}
+
 .login, .register {
     margin-top:10%;
 }

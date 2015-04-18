@@ -85,11 +85,11 @@ if ($d['user2'] != $_SESSION['user_id']) {
                 <span class="input-group-btn">
                     <button id="chatSend" class="btn btn-default yellow" type="button">Absenden</button>
                     <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" id="sessionId" />
-                    <!--<input type="hidden" value='<?php echo ($d["user1"] == $_SESSION["user_id"]) ? "$d['user2']" : "$d['user1']"; ?>' id="sessionId" />-->
+                    <!--<input type="hidden" value='<?php #echo ($d["user1"] == $_SESSION["user_id"]) ? "$d['user2']" : "$d['user1']"; ?>' id="sessionId" />-->
                 </span>
             
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />
               
             </div>
           </div>
-      </section>
+      </section>#

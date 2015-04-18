@@ -73,11 +73,8 @@ DBHandler::initDB();
         <script type="text/javascript" href="js/login.js"></script>
         <script type="text/javscript" href="js/notificator.js"></script>
 
-<<<<<<< HEAD
-=======
         <div id="notificationArea">
         </div>
         <script src="js/notify.js"></script>
->>>>>>> 8eabff0e642e1d2e0f165b266648d8122541eca2
     </body>
 </html>

@@ -26,7 +26,12 @@ if(isset($_POST['register'])) {
   <form method="post" action="index.php?s=register">
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">@</span>
-        <input name="id" type="text" class="form-control" placeholder="Username or Email" aria-describedby="basic-addon1">
+        <input name="id" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input name="id" type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
     </div>
 
     <div class="input-group">

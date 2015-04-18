@@ -1,7 +1,14 @@
 #mainSearch {
-    margin-top: 25%;
+    margin-top: 10%;
 }
-#mainLogo {
-    width: 30%;
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
 
+#mainLogo {
+    width:120px;
+    height:41px;
+    background:url("../img/logo_klein.png");
+    margin:0px auto;
 }

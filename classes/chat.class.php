@@ -21,7 +21,7 @@ class Chat {
     }
     
     public function getChatMessages($id) {
-        $chats = DBHandler::getDB()->fetch_assoc("SELECT * FROM chat_messages WHERE id=? LIMIT 1", array($id));
+        $chats = DBHandler::getDB()->fetch_all("SELECT * FROM chat_messages WHERE chat_id=?", array($id));
         
         return $chats;
     }

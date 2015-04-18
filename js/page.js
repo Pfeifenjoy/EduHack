@@ -70,3 +70,20 @@ $(document).delegate("form", "submit", function () {
     
     return false;
 });
+
+$(document).delegate("a", "click", function () {
+    var href = $(this).attr('href');
+    var rLink = href.substring(href.indexOf("=") + 1);
+    $('section.container').html('<div id="loading"><img src="img/loading.gif" alt="laden" id="loader" /></div>');
+    $.ajax({
+        url: 'request.php?s=' + rLink,
+        success: function (result) {
+            console.log(result)
+            $('img#loader').hide();
+            $('section.container').html(result);
+            window.location.hash = "s=" + rLink;
+        }
+    });
+    
+    return false;
+});

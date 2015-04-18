@@ -1,5 +1,5 @@
 <div class="col-md-3 side">
-    <div class="user-img" style="width:50%; padding-top:10px;"><img src="img/login_bild.png" alt="Benutzerbild" /></div>
+    <div class="user-img" style="width:50%; margin:0px auto; padding-top:10px;"><img src="img/login_bild.png" alt="Benutzerbild" /></div>
     <div class="user-data">
         <h2><?php echo $_SESSION['username'];?></h2>
         <span class="rank">Community Rang</span>

@@ -32,6 +32,7 @@ DBHandler::initDB();
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <link rel="shortcut icon" href="img/logo_favicon.png" type="image/png" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <link rel="icon" href="img/logo_favicon.png" type="image/png" />
         <script src="js/notify.js"></script>
         <?php

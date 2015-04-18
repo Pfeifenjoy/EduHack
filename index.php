@@ -35,7 +35,27 @@ DBHandler::initDB();
         <link rel="icon" href="img/logo_favicon.png" type="image/png" />
         <?php
         if(isset($_SESSION['username'])) {
-            echo '<script type="text/javascript" src="js/chat.js"></script>';
+            echo '<script type="text/javascript">function WebSocketTest() {
+     var ws = new WebSocket("ws://127.0.0.1:9999");
+     
+     ws.onopen = function()    {
+        // Web Socket is connected, send data using send()
+        console.log("connected");
+         ws.send("ID:" + "'.base64_encode($_SESSION['user_id']).'");
+         console.log("Autoisierungskey gesendet");
+     };
+      
+     ws.onmessage = function (msg)     { 
+        var received_msg = msg.data;
+        console.log("Message is received:" + msg.data);
+         alert("message recieved");
+     };
+      
+     ws.onclose = function()     { 
+        // websocket is closed.
+        console.log("connection closed");
+     };
+  }</script>';
         }
         ?>
     </head>
@@ -73,11 +93,8 @@ DBHandler::initDB();
         <script type="text/javascript" href="js/login.js"></script>
         <script type="text/javscript" href="js/notificator.js"></script>
 
-<<<<<<< HEAD
-=======
         <div id="notificationArea">
         </div>
         <script src="js/notify.js"></script>
->>>>>>> 8eabff0e642e1d2e0f165b266648d8122541eca2
     </body>
 </html>

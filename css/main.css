@@ -8,6 +8,14 @@ a {
     color:rgba(0,146,69,1);
 }
 
+a:hover {
+    -moz-transition:color .2s ease-in-out;
+    -o-transition:color .2s ease-in-out;
+    -webkit-transition:color .2s ease-in-out;
+    cursor: pointer !important;
+    color: rgba(0,214,101,1);
+}
+
 #mainSearch {
     margin-top: 10%;
 }
@@ -106,12 +114,16 @@ input.form-control {
     border:none;
 }
 
+.login p, .register p {
+  width:70%;
+}
+
 .login img, .register img {
   margin:10px;
   float:right;
   width:22%;
   max-width:150px;
-  margin-top:-42px;
+  margin-top:-112px;
 }
 
 p.error {
@@ -119,3 +131,6 @@ p.error {
   font-style: italic;
 }
 
+.clear {
+  clear:both;
+}

@@ -40,10 +40,12 @@ function addContactsResult(){
         destination.append(tag);
     }
 }
-$(document).delegate("input", "keydown",  function() {
+$(document).on("input", "#mainSearch input",  function() {
     $.ajax({
         url: 'ajax/search_questions.php?q=' +  $(this).val().replace(' ', '+'),
         success: function(result) {
+            var resultsSearch = $('#searchQuestions');
+            if(resultsSearch) resultsSearch.empty();
             result.forEach(function(r) {
                 addQuestionResult(r);
             });

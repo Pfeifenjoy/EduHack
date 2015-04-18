@@ -64,8 +64,7 @@ DBHandler::initDB();
              include(realpath('./sites/register.php'));
            }
 	
-            <?php
-                include("sites/register.php");
+      
             ?>
         </section>
     </body>

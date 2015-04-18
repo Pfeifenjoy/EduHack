@@ -2,7 +2,6 @@
 $c            = new Chat();
 $d            = $c->getChatById($_GET['id']);
 $chatMessages = $c->getChatMessages($_GET['id']);
-
 $oldAuthor                       = "-1";
 #var_dump($chatMessages[0]);
 $usernames[strval($_SESSION['user_id'])] = $_SESSION['username'];
@@ -12,26 +11,9 @@ if ($d['user2'] != $_SESSION['user_id']) {
     $usernames[strval($d['user1'])] = $c->getUserNameById($d['user1']);
 }
 
-<<<<<<< HEAD
-=======
-?><section class="chat-background">
-          <div class="container">
-            <div class="chat">
-                <div class="col-md-9" id="messageDisplay" >
-                  <!--<div class="col-md-12 post clear">
-                    <div class="col-md-2">
-                      <div class="user1 user-data">
-                        <img src="img/login_bild.png" alt="Benutzerbild" />
-                        <a href="">Username</a>
-                      </div>
-                    </div>
->>>>>>> ab3994b413f1b70b229bcae597f0dfb3d87249e4
-
-
-
-
-
 ?>
+
+
 <section class="chat-background">
   <div class="container">
     <div class="chat">
@@ -73,7 +55,6 @@ if ($d['user2'] != $_SESSION['user_id']) {
                   $oldAuthor = $e['author'];
               }
         ?>
-
                    
           <?php
                                        }
@@ -101,7 +82,6 @@ if ($d['user2'] != $_SESSION['user_id']) {
                         <a href="">Username</a>
                       </div>
                     </div>
-
                     <div class="col-md-10 content">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
                   </div>

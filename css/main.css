@@ -24,6 +24,10 @@ a {
     padding-top: 3px;
 }
 
+.own-problem {
+    margin-top:10px;
+}
+
 .navbar:not(.navbar-nav), .navbar-default {
     background-color: white;
     border-bottom: 2px solid rgba(0,146,69,1);

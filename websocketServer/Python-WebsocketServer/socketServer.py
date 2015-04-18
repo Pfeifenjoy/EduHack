@@ -71,7 +71,29 @@ class WebSock:
             except:
                 print("error sending to a client")
         self.LOCK.release()
- 
+        
+    #sends data to user 
+    def sendData(self, data):
+        split = data.split('@')
+        resp = bytearray([0b10000001, len(data)])
+        # append the data bytes
+        for d in bytearray(data):
+            resp.append(d)
+            
+        self.LOCK.acquire()
+        print("acquire")
+        for client in UserManagment.users:
+            print("for")
+            try:
+                print("getID: " + str(client.getID()))
+                print("to: " + str(split[3]).strip())
+                if str(client.getID()).strip() == str(split[3]).strip():
+                    client.getCon().send(resp)
+            except:
+                print("error sending to a client")
+        self.LOCK.release()
+        
+        
     ################################################
     # Checking headers                             #       
     ################################################
@@ -109,7 +131,7 @@ class WebSock:
     
     def isServerOrigin(self, data):
         split = data.split('@')
-        return True if len(split) == 2 and split[0] == "SOK" else False
+        return True if len(split) == 5 and split[0] == "SOK" else False
     
     ################################################
     # Checks whether a client is allowed to connect#
@@ -129,7 +151,8 @@ class WebSock:
                 if not self.hasPattern(data) and self.isServerOrigin(data) == True:
                     LogSys.writeData('signalLog', strftime("%Y-%m-%d %H:%M:%S", gmtime()) + ' ' + str(data))
                     print("Signal recieved @ " + strftime("%Y-%m-%d %H:%M:%S", gmtime()))                
-                    self.broadcast_resp(data)
+                    self.sendData(data)
+                    client.close()
         except Exception:
             pass
         

@@ -5,7 +5,7 @@ function addThumbnail(destination) {
    
    var tag = '<div class="col-sm-6 col-md-4">'
        + '<div class="thumbnail">'
-       + '<img src="" alt="Blob">'
+       + '<img src="">'
        + '<div class="caption">'
        + '<h3>' + name + '</h3>'
        + '<p>' + description + '</p>'

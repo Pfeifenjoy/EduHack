@@ -4,7 +4,7 @@
  Author: Tobias Dorra
  -------------------------------------------- */
 
-class Question {
+class Question implements JsonSerializable{
 
 	//---- private --------------------------------------------------------------------------------------
 	
@@ -74,6 +74,16 @@ class Question {
 	public function getNrOfHashtags()
 	{
 		return DBHandler::getDB()->num_rows("SELECT * FROM hashtags WHERE id IN (SELECT hashtag FROM questions_hashtags WHERE question = ?)", array($this->id));
+	}
+	
+	/**
+	 * 
+	 * @return array
+	 */
+	public function jsonSerialize() {
+		return array(
+				"question" => utf8_decode($this->question)
+		);
 	}
 	
 	//---- public static --------------------------------------------------------------------------------

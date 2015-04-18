@@ -41,7 +41,7 @@ class Login {
             sha1($this->pw)
         )) == 1) {
 			
-            $data = DBHandler::getDB()->fetch_assoc("SELECT id, username, email FROM account WHERE (username = ? OR email = ?)", array(
+            $data = DBHandler::getDB()->fetch_assoc("SELECT id, username, createTime, email FROM account WHERE (username = ? OR email = ?)", array(
                 $this->id, 
                 $this->id
             ));	
@@ -50,6 +50,7 @@ class Login {
             $_SESSION['username'] = $data['username'];
             $_SESSION['user_id']  = $data['id'];
 			$_SESSION['email'] = $data['email'];
+            $_SESSION['createTime'] = $data['createTime'];
 			
             return true;
 			

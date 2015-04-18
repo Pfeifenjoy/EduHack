@@ -13,6 +13,10 @@ a:hover {
   color:rgba(0,214,101,1);
 }
 
+.clear {
+    clear: both;
+}
+
 #mainSearch {
     margin-top: 15%;
 }
@@ -385,6 +389,14 @@ footer a {
   color:#ccc;
 }
 
+
+// profile ================================
+
+#addCompetence{
+    margin: 10px;
+}
+
+
 /* Ask question page =========================*/
 
 #matching-persons
@@ -392,9 +404,6 @@ footer a {
 	margin-top: 20px;
 }
 
-#matching-persons .person-container
-{
-}
 
 #matching-persons .person img
 {
@@ -405,10 +414,6 @@ footer a {
 	height: 4em;
 }
 
-
-#matching-persons .person section
-{
-}
 
 
 #matching-persons .person section h3
@@ -433,4 +438,10 @@ footer a {
 #ask-public
 {
 	padding: 10px;
+}
+
+span.rightTime {
+    float:right;
+    font-size:0.8em;
+    color:gray;
 }

@@ -19,5 +19,18 @@ function WebSocketTest() {
         console.log("connection closed");
      };
   }
- 
+
+
+function addMessage(message) {
+    var container = $('#messageDisplay');
+    if(container) {
+        var newMessage = '<div class="col-md-12 post clear">'
+            + '<div class="col-md-2">'
+            + '<div class="user1 user-data">'
+            + '<img src="img/login_bild.png" alt="" />'
+            + '<a href="">Username</a>'
+            + '</div></div></div>';
+        container.append(newMessage);
+    }
+}
 

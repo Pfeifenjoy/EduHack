@@ -1,5 +1,5 @@
 <div class="col-md-3 side">
-    <div class="user-img" style="width:50%; padding-top:10px;"><img src="img/login_bild.png" alt="Benutzerbild" /></div>
+    <div class="user-img" style="width:50%; margin:0px auto; padding-top:10px;"><img src="img/login_bild.png" alt="Benutzerbild" /></div>
     <div class="user-data">
         <h2><?php echo $_SESSION['username'];?></h2>
         <span class="rank">Community Rang</span>
@@ -22,4 +22,18 @@
     <br />
     <a class="btn btn-primary">Chat starten</a>
 </div>
-
+<div class="clear"></div>
+<div>
+    <h3>Kompetenzen</h3>
+    <span class="label label-default">essen</span>
+    <br />
+    <br />
+    <form method="post" action="" class="col-md-4" id="addCompetence">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="neue Kompetenz" />
+            <span class="input-group-btn">
+                <input type="submit" class="btn btn-primary" value="Hinzufügen" />
+            </span>
+        </div>
+    </form>
+</div>

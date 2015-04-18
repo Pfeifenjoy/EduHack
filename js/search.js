@@ -10,7 +10,7 @@ function addQuestionResult(question) {
            + '<img src="">'
            + '<div class="caption">'
            + '<p>' + description + '</p>'
-           + '<p><a class="btn btn-primary" role="button">Anzeigen</a> <a class="btn btn-danger delete-btn" role="button">Löschen</a></p>'
+           + '<p><button class="btn btn-primary" role="button">Anzeigen</button> <button class="btn btn-danger delete-btn" role="button">Löschen</button></p>'
            + '</div>'
            + '</div>'
            + '</div> ';

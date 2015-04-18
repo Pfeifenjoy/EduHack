@@ -12,8 +12,6 @@ if ($d['user2'] != $_SESSION['user_id']) {
     $usernames[strval($d['user1'])] = $c->getUserNameById($d['user1']);
 }
 
-<<<<<<< HEAD
-=======
 ?><section class="chat-background">
           <div class="container">
             <div class="chat">
@@ -25,11 +23,6 @@ if ($d['user2'] != $_SESSION['user_id']) {
                         <a href="">Username</a>
                       </div>
                     </div>
->>>>>>> ab3994b413f1b70b229bcae597f0dfb3d87249e4
-
-
-
-
 
 ?>
 <section class="chat-background">

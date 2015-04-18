@@ -1,7 +1,92 @@
+body {
+    font-family: 'Open Sans', sans-serif; 
+    background-color: #eee;
+}
+
+a {
+    cursor: pointer !important;
+}
+
 #mainSearch {
     margin-top: 25%;
 }
+
 #mainLogo {
     width: 30%;
 
+}
+
+#mainsearch {
+    margin-top:15%;
+    background-color:none;
+}
+
+.navbar-brand {
+    padding-top: 3px;
+}
+
+.navbar:not(.navbar-nav), .navbar-default {
+    background-color: white;
+    border-bottom: 2px solid rgba(0,146,69,1);
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+.navbar ul{
+    margin-left:120px;
+    margin-top:15px;
+}
+
+.navbar li {
+    float:left;
+    margin-right:10px;
+    padding:5px;
+    padding: 8 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    display:block;
+    padding: 20 10px;
+    color:black;
+    font-size:0.9em;
+    border:0px;
+    text-transform: uppercase;
+}
+
+.navbar li:hover a {
+    color:white;
+}
+
+.navbar li:hover {
+    -moz-transition:color .2s ease-in, background-color .2s ease-in-out;
+    -o-transition:color .2s ease-in, background-color .2s ease-in-out;
+    -webkit-transition:color .2s ease-in, background-color .2s ease-in-out;
+    background-color: rgba(0,146,69,1);
+    border-radius: 4px;
+    cursor:pointer;
+}
+
+.input-group-btn button {
+    height:50px;
+    text-shadow:none;
+    color:white;
+    background-image:none;
+    background-color: rgba(0,146,69,1);
+}
+
+.input-group-btn button:hover {
+    -moz-transition:color .2s ease-in, background-color .2s ease-in-out;
+    -o-transition:color .2s ease-in, background-color .2s ease-in-out;
+    -webkit-transition:color .2s ease-in, background-color .2s ease-in-out;
+    color:white;
+    background-color: rgba(0,214,101,1);
+}
+
+input.form-control {
+    height:50px;
 }

@@ -13,6 +13,10 @@ a:hover {
   color:rgba(0,214,101,1);
 }
 
+.clear {
+    clear: both;
+}
+
 #mainSearch {
     margin-top: 15%;
 }
@@ -384,6 +388,14 @@ footer {
 footer a {
   color:#ccc;
 }
+
+
+// profile ================================
+
+#addCompetence{
+    margin: 10px;
+}
+
 
 /* Ask question page =========================*/
 

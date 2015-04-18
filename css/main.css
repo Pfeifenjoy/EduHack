@@ -157,6 +157,7 @@ p.success {
 
 /* problem ==============================*/
 
+
 .problem .headline {
   padding:10px;
   margin-bottom:20px;
@@ -171,16 +172,6 @@ p.success {
   padding:20px;
   background-color: rgba(0,214,101,1);
   border-radius: 15px;
-}
-
-.problem ul.hashtags {
-  margin-left:-40px;
-}
-
-.problem ul.hashtags li {
-  display:block;
-  float:left;
-  margin-right:8px;
 }
 
 .problem .description {
@@ -209,7 +200,7 @@ p.success {
 }
   
   
-.user-img img {
+.user-img img, .user-data img {
   max-width:100%;
   height:auto;
 }
@@ -289,6 +280,74 @@ p.success {
 .similar .user-data a, span {
   padding-right:5px;
 }
+
+/* chat ==============================*/
+
+section.chat-background {
+  margin-top:-20px;
+  background-color:rgba(0,146,69,1);
+}
+
+.chat .col-md-9 {
+  background-color:none;
+}
+
+.chat .user-data {
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.chat .content {
+  padding:10px;
+  margin-bottom: 20px;
+}
+
+.chat .post {
+  padding:0px;
+  padding-top:10px;
+  margin:0px;
+  margin-bottom:20px;
+}
+
+.chat .post:nth-child(odd) {
+  background-color:white;
+}
+
+.chat .post:nth-child(even) {
+  background-color:#ddd;
+  padding-left:10px;
+}
+  
+
+.chat .col-md-3.side {
+  background-color: #fff;
+}
+
+.chat .side h1 {
+  word-wrap:normal;
+  font-size: 2em;
+}
+
+
+
+#reply {
+ background-color:#eee; 
+  padding-top:20px;
+}
+
+.btn.btn-default.yellow {
+   background-color: rgba(247,147,30,1);
+  margin-bottom:10px;
+}
+
+#reply .btn.btn-primary {
+  width:500px;
+  display:block;
+  margin:0px auto;
+  margin-bottom:15px;
+}
+
+
 
 /* footer ==============================*/
 

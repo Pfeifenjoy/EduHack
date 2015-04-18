@@ -1,10 +1,10 @@
-function notify(text) {
+function notify(text, cID) {
     var notifyArea = $('#notificationArea');
     if(notifyArea) {
 
         var notification = '<div class="notification" role="alert">' + text
             + '<br />'
-            + '<button class="btn btn-success accept-btn">Anzeigen</button>'
+            + '<a class="btn btn-success accept-btn" href="index.php?s=chat&id='+cID+'">Anzeigen</button>'
             + '<button class="btn btn-danger ignore-btn">Ignorieren</button>'
            + '</div>';
         notifyArea.append(notification);

@@ -4,24 +4,22 @@ body {
 }
 
 a {
-    cursor: pointer !important;
-    color:rgba(0,146,69,1);
+  cursor: pointer !important;
+  color:rgba(0,146,69,1);
 }
 
 a:hover {
-    -moz-transition:color .2s ease-in-out;
-    -o-transition:color .2s ease-in-out;
-    -webkit-transition:color .2s ease-in-out;
-    cursor: pointer !important;
-    color: rgba(0,214,101,1);
+  cursor: pointer !important;
+  color:rgba(0,214,101,1);
 }
 
 #mainSearch {
-    margin-top: 10%;
+    margin-top: 25%;
 }
-#wrapper {
-    width: 80%;
-    margin: 0 auto;
+
+#mainLogo {
+    width: 30%;
+
 }
 
 #mainsearch {
@@ -31,10 +29,6 @@ a:hover {
 
 .navbar-brand {
     padding-top: 3px;
-}
-
-.own-problem {
-    margin-top:10px;
 }
 
 .navbar:not(.navbar-nav), .navbar-default {
@@ -85,13 +79,17 @@ ul {
 
 .input-group-btn button {
     height:50px;
+}
+
+.input-group-btn button, .btn.btn-primary {
     text-shadow:none;
     color:white;
     background-image:none;
     background-color: rgba(0,146,69,1);
+    border:none;
 }
 
-.input-group-btn button:hover {
+.input-group-btn button:hover, .btn.btn-primary:hover {
     -moz-transition:color .2s ease-in, background-color .2s ease-in-out;
     -o-transition:color .2s ease-in, background-color .2s ease-in-out;
     -webkit-transition:color .2s ease-in, background-color .2s ease-in-out;
@@ -99,7 +97,7 @@ ul {
     background-color: rgba(0,214,101,1);
 }
 
-input.form-control {
+#mainSearch input.form-control {
     height:50px;
 }
 
@@ -132,15 +130,15 @@ input.form-control {
   margin-top:-112px;
 }
 
-p.error, p.success {
+p.error {
   color:rgba(237,28,36,1);
   font-style: italic;
-  margin-top:5px;
 }
 
 p.success {
     color:rgba(0,146,69,1);
 }
+
 .clear {
   clear:both;
 }
@@ -185,6 +183,11 @@ p.success {
   margin-bottom:20px;
 }
 
+.problem .description input.btn.btn-primary {
+  width:200px;
+  display:block;
+  margin:0px auto;
+}
 
 
 /* sidebar user stuffs ==============================*/
@@ -203,6 +206,13 @@ p.success {
 .side .user-data {
   padding:20px;
   margin-bottom:20px;
+}
+
+.side .btn.btn-primary {
+  font-size:1.2em;
+  padding:20px;
+  margin-bottom:20px;
+  width:100%;
 }
 
 /* recommended users list ==============================*/
@@ -243,4 +253,56 @@ p.success {
 .recommended .btn.btn-primary {
   font-size:0.8em;
   margin-left: 20px;
+}
+
+/* recommended similar problems list ==============================*/
+
+.similar {
+  background-color: white;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-bottom:20px;
+}
+
+.similar .problem-name {
+  text-decoration: none;
+  font-size: 1.2em;
+  color:black;
+}
+
+.similar .user-data {
+  font-size: 0.8em;
+  float:right;
+}
+
+.similar .user-data a, span {
+  padding-right:5px;
+}
+
+/* footer ==============================*/
+
+footer {
+  background-color: #333;
+  margin-top:25px;
+  font-size: 0.8em;
+  color:#999;
+  padding-bottom: 15px;
+  text-align:center;
+}
+
+#footer-nav ul {
+  width:250px;
+  margin: 0px auto;
+  padding-top:10px;
+}
+
+#footer-nav ul li {
+  display:block;
+  float:left;
+  padding-right: 10px;
+  padding-bottom: 15px;
+}
+
+footer a {
+  color:#ccc;
 }

@@ -36,9 +36,11 @@ $(document).ready(function () {
         $.ajax({
             url: 'request.php?s=' + rLink,
             success: function (result) {
-                $('img#loader').hide();
-                $('section.container').html(result);
-                window.location.hash = "s=" + rLink;				
+                setTimeout(function(){
+                    $('img#loader').hide();
+                    $('section.container').html(result);
+                    window.location.hash = "s=" + rLink;				
+                }, 1000);
             }			
         });
 		

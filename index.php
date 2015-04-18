@@ -35,7 +35,7 @@ DBHandler::initDB();
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.php">
+              <a class="navbar-brand" href="index.php?s=home">
                 <img alt="Brand" src="img/logo_klein.png"/>
               </a>
                 <ul>

@@ -5,11 +5,6 @@ Author: Steffen Lindner
 
 -------------------------------------------- */
 
-require("regex.class.php");
-require("error.class.php");
-require("dbhandler.class.php");
-require("../inc/config.inc.php");
-
 
 class Register {
     private $id;

@@ -44,15 +44,6 @@ DBHandler::initDB();
           </div>
         </nav>
         <section class="container">
-            <div class="input-group" id="mainSearch">
-                <input type="text" class="form-control" placeholder="Gib hier dein Problem ein!">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Los!</button>
-                    </span>     
-            </div>
-            <div class="own-problem">
-                <p>… oder <a href="">erstelle dein eigenes Problem</a>.</p>
-            </div>
             <?php	
             if(isset($_GET['s']) && !empty($_GET['s'])) {
                 if(file_exists(realpath('./sites/')."/".$_GET['s'].".php")) {
@@ -63,7 +54,7 @@ DBHandler::initDB();
                 }
             } 
 	       else {
-             include(realpath('./sites/register.php'));
+             include(realpath('./sites/home.php'));
            }
 	
       

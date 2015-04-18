@@ -19,5 +19,11 @@ class Chat {
         $chats = DBHandler::getDB()->fetch_assoc("SELECT * FROM chat WHERE id=? LIMIT 1", array($id));
         return $chats;
     }
+    
+    public function getChatMessages($id) {
+        $chats = DBHandler::getDB()->fetch_assoc("SELECT * FROM chat_messages WHERE id=? LIMIT 1", array($id));
+        
+        return $chats;
+    }
 }
 ?>

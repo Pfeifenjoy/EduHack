@@ -2,10 +2,8 @@
 /* -----------------------------------------
 Loginklasse
 Author: Steffen Lindner
-Made for ConKreter
 -------------------------------------------- */
 
-session_save_path("session");
 
 class Login {
     private $db;
@@ -24,7 +22,7 @@ class Login {
     Verfiziert den Login und erstellt die Sessions
     --------------------------------------------- */
     public function verifyLogin() {
-        if (empty($this->id) || !(RegEx::checkUsername($this->id))) {
+        if (empty($this->id) || (!(RegEx::checkUsername($this->id)) && !(RegEx::checkEmail($this->id)))) {
             $this->status   = false;
         }
         
@@ -39,47 +37,32 @@ class Login {
     Loggt den User ein
     ------------------------------------------------ */
     public function doLogin() {
-		global $language;
-        if ($this->db->num_rows("SELECT id FROM account WHERE username = ? AND password = ? LIMIT 1", array(
-            $this->id,
+        if (DBHandler::getDB()->num_rows("SELECT id FROM account WHERE (username = ? OR email = ?) AND password = ? LIMIT 1", array(
+            $this->id, $this->id,
             sha1($this->pw)
         )) == 1) {
 			
-            $data = $this->db->fetch_assoc("SELECT id, log_stat, affiliate, session_id, last_act, status, email, type, UNIX_TIMESTAMP(payed_til) as payed_til, username FROM account WHERE username = ?", array(
+            $data = DBHandler::getDB()->fetch_assoc("SELECT id, log_stat, affiliate, session_id, last_act, status, email, type, UNIX_TIMESTAMP(payed_til) as payed_til, username FROM account WHERE username = ?", array(
                 $this->id
             ));
 			
-			if($data['log_stat'] == 1) {
-				if(file_exists("session/sess_".$data['session_id'])) {
-				   @unlink("session/sess_".$data['session_id']);
-				}
-				
-			}
 			
-			/*if(file_exists("session/sess_".session_id())) {
-				@unlink("session/sess_".session_id());
-			}*/
-				
+			
+		
 				
 				
 		
-			$this->db->query("UPDATE account SET last_login = ? WHERE id = ? LIMIT 1", array(time(), $data['id']));
-			$this->db->query("UPDATE account SET log_stat = 1 WHERE id = ? LIMIT 1", array($data['id']));
+		
 			
             $_SESSION['username'] = $data['username'];
             $_SESSION['user_id']  = $data['id'];
-			$_SESSION['type'] = $data['type'];
-			$_SESSION['payed_til'] = $data['payed_til'];
-			$_SESSION['status'] = $data['status'];
 			$_SESSION['email'] = $data['email'];
-			$_SESSION['affiliate'] = $data['affiliate'];
-			$this->db->query("UPDATE account SET session_id = ? WHERE id = ? LIMIT 1", array(session_id(), $data['id']));
 			
             return true;
 			
 			
         } else {
-            Error::$error[] = $language[$_SESSION['lang']]['lError'];
+            Error::$error[] = "Login nicht erfolgreich. Überprüfe deine Logindaten.";
             return false;
         }
     }

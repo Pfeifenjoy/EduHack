@@ -10,7 +10,7 @@ class Error {
     public static function showError() {
 		global $language;
     	for($i=0;$i<count(self::$error);$i++) {
-        	echo '<p class="error">'.$language[$_SESSION['lang']]['err'].': '.self::$error[$i].'</p>';
+        	echo '<p class="error">Fehler: '.self::$error[$i].'</p>';
 	    }
     }
 }

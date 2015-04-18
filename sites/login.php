@@ -1,17 +1,5 @@
 <?php
-require("../inc/config.inc.php");
-require("../classes/db.class.php");
-require("../classes/dbhandler.class.php");
-require("../classes/regex.class.php");
-require("../classes/login.class.php");
-require("../classes/error.class.php");
-// init login
 
-DBHandler::initDB();
-
-$_POST['login'] = "test";
-$_POST['id'] = "ne4y";
-$_POST['pw'] = "test";
 
 
 if(isset($_POST['login'])) {
@@ -30,3 +18,20 @@ if(isset($_POST['login'])) {
     }
 }
 ?>
+
+<div class="login">
+  <h1>Login to Web App</h1>
+  <form method="post" action="index.html">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input name="id" type="text" class="form-control" placeholder="Username or Email" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon glyphicon glyphicon-lock" id="basic-addon1"></span>
+        <input name="pw" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+    </div>
+    
+    <input class="btn btn-primary" type="submit" value="Login" />
+  </form>
+</div>

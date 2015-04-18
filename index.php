@@ -11,6 +11,8 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -30,14 +32,16 @@
           </div>
         </nav>
         <section class="container">
-            <div class="jumbotron">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
-                </div><!-- /input-group -->
+            <img id="mainLogo" alt="SolveIt" />
+            <div class="input-group" id="mainSearch">
+                <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
             </div>
+            <?php
+                include("sites/login.php");
+            ?>
         </section>
     </body>
 </html>

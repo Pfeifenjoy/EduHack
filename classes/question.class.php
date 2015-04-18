@@ -19,6 +19,14 @@ class Question {
 	//---- public ---------------------------------------------------------------------------------------
 	
 	/**
+	 * @return int
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+	
+	/**
 	 * @return string
 	 */
 	public function getQuestion()

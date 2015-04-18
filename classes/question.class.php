@@ -9,8 +9,10 @@ class Question {
 	//---- private --------------------------------------------------------------------------------------
 	
 	private $question = "";
+	private $id;
 	
 	private function __construct($db_result){
+		$this->id = $db_result["id"];
 		$this->question = $db_result["question"];		
 	}
 	
@@ -37,7 +39,7 @@ class Question {
 	 */
 	public function save()
 	{
-		DBHandler::getDB()->query("UPDATE questions SET question = ?", array($this->question));
+		DBHandler::getDB()->query("UPDATE questions SET question = ? WHERE id = ?", array($this->question, $this->id));
 	}
 	
 	//---- public static --------------------------------------------------------------------------------

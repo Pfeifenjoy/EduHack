@@ -1,35 +1,34 @@
-﻿<?php
+<?php
 /* -----------------------------------------
 Registerklasse
 Author: Steffen Lindner
 
 -------------------------------------------- */
 
+require("regex.class.php");
+require("error.class.php");
+require("dbhandler.class.php");
+require("../inc/config.inc.php");
 
 
 class Register {
-	private $id;
+    private $id;
 	private $pw;
-	private $db;
 	private $email;
-	private $type;
-	private $status = true;
-	private $stuff;
+    private $status;
+  
 	
-	public function __construct($db, $id, $pw, $email, $type, $stuff) {
-		$this->db = $db;
+	public function __construct($id, $pw, $email) {
 		$this->id = $id;
 		$this->pw = $pw;
 		$this->email = $email;
-		$this->type = $type;
-		$this->stuff = $stuff;
-	}
+        $this->status = true;
+    }
 	
 	/* -------------------------------------
 	Verifiziert die angegebenen Daten
 	-----------------------------------------*/
 	public function verifyRegister() {
-		global $language;
 		if(empty($this->id) || !(RegEx::checkUsername($this->id))) {
 			$this->status = false;
 		}
@@ -42,21 +41,6 @@ class Register {
 			$this->status = false;
 		}
 		
-		if(!isset($this->stuff['agb'])) {
-			Error::$error[] = $language[$_SESSION['lang']]['agbErr'];
-			$this->status = false;
-		}
-		
-		if(!isset($this->stuff['risk'])) {
-			Error::$error[] = $language[$_SESSION['lang']]['riskErr'];
-			$this->status = false;
-		}
-		
-		if($this->stuff['captcha'] != $_SESSION['captchaID']) {
-			Error::$error[] = $language[$_SESSION['lang']]['captchaErr'];
-			$this->status = false;
-		}
-		
 		return $this->status;
 	}
 	
@@ -65,9 +49,8 @@ class Register {
 	Prüft ob der User existiert
 	-----------------------------------------------*/
 	public function existsUser() {		
-	    global $language;
-		if($this->db->num_rows("SELECT id FROM account WHERE username = ? LIMIT 1", array($this->id))) {
-			Error::$error[] = $language[$_SESSION['lang']]['userExists'];
+		if(DBHandler::getDB()->num_rows("SELECT id FROM account WHERE username = ? LIMIT 1", array($this->id))) {
+			Error::$error[] = "Ein Nutzer mit diesem Nutzernamen existiert bereits.";
 			return true;
 		}
 		else {
@@ -80,9 +63,8 @@ class Register {
 	Prüft ob es bereits einen User mit dieser Email gibt
 	--------------------------------------------------- */
 	public function existsEmail() {
-		global $language;
-		if($this->db->num_rows("SELECT id FROM account WHERE email = ?  LIMIT 1", array($this->email))) {
-			Error::$error[] = $language[$_SESSION['lang']]['emailExists'];
+		if(DBHandler::getDB()->num_rows("SELECT id FROM account WHERE email = ?  LIMIT 1", array($this->email))) {
+			Error::$error[] = "Ein Nutzer mit dieser Email existiert bereits.";
 			return true;
 		}
 		else {
@@ -93,34 +75,40 @@ class Register {
 	/* ------------------------------------------------
 	Registriert den User
 	----------------------------------------------------- */
-    public function register() {
-		global $language;
-		if(isset($this->stuff['affiliate'])) {
-			$aff = $this->stuff['affiliate'];
-		}
-		else {
-			$aff = 0;
-		}
-		
+    public function register() {		
 		$time = time();
-		$ip = $_SERVER['REMOTE_ADDR'];
 		$this->pw = sha1($this->pw);
-		if($this->type == 0) {
-			$content = $language[$_SESSION['lang']]['weMessageClient'].' http://www.hotbinarytrader.com/index.php?s=activateAccount&email='.$this->email.'  '.$language[$_SESSION['lang']]['weMessageClient2'];
-		}
-		else {
-		   $content = $language[$_SESSION['lang']]['weMessage'].' http://www.hotbinarytrader.com/index.php?s=activateAccount&email='.$this->email.$language[$_SESSION['lang']]['weMessage2'];
-		}
-		if($this->db->query("INSERT INTO account (username, password, email, type, ip, reg_time, status, affiliate, log_stat) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)", array($this->id, $this->pw, $this->email, $this->type, $ip, $time, 0, $aff, 0))) {
-			$mail = new Mail($this->email, $language[$_SESSION['lang']]['weMessageSubject'], $content);
-			if($mail->sendMail());
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+		
+		if(DBHandler::getDB()->query("INSERT INTO account (username, password, email, createTime) VALUES (?, ?, ?, ?)", array($this->id, $this->pw, $this->email, $time))) {
+            return true;
+	   }
+        else {
+            Error::$error[] = "Es ist ein Fehler aufgetreten.";
+            return false;
+        }
 	
 	
+     }
 }
+
+// reg test
+
+DBHandler::initDB();
+
+$reg = new Register("ne4y", "test123", "test1234@web.de");
+
+if($reg->verifyRegister()) {
+    if($reg->register()) {
+        echo 'registriert';
+    }
+    else {
+        Error::showError();
+    }
+    
+}
+else {
+    Error::showError();
+}
+    
+    
 ?>

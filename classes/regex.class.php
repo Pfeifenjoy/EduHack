@@ -15,7 +15,7 @@ class RegEx {
         if (preg_match("/^[a-zA-Z0-9\._-]+@[a-zA-Z0-9\.-]+\.[a-zA-Z]{2,4}$/", $string)) {
             return true;
         } else {
-			Error::$error[] = $language[$_SESSION['lang']]['EmailValidation'];
+			Error::$error[] = "Bitte gib eine valide Emailaddresse an.";
             return false;
         }
     }
@@ -39,7 +39,7 @@ class RegEx {
         if (preg_match("/^[a-zA-Z0-9]+$/", $string)) {
             return true;
         } else {
-			Error::$error[] = $language[$_SESSION['lang']]['PasswordValidation'];
+			Error::$error[] = "Das Passwort erfüllt nicht die Vorraussetzungen.";
             return false;
         }
     }
@@ -74,7 +74,7 @@ class RegEx {
         if (preg_match("/^[a-zA-Z0-9]+$/", $string)) {
             return true;
         } else {
-			Error::$error[] = $language[$_SESSION['lang']]['UsernameValidation'];
+			Error::$error[] = "Dieser Nutzername erfüllt nicht die Vorraussetzungen.";
             return false;
         }
     }

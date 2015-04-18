@@ -1,9 +1,21 @@
 <?php
+require("inc/config.inc.php");
+
+function __autoload($class_name) {
+    include 'classes/'.strtolower($class_name) . '.class.php';
+}
+
+
+DBHandler::initDB();
 
 $host = '127.0.0.1';  //where is the websocket server
 $port = 9999; 
 $local = "http://www.example.com/";  //url where this script run
-$data = 'SOK@test@2@'.$_GET['to'].'@1';  //data to be send
+
+
+
+$_GET['message'] = str_replace("@", "&at;", $_GET['message']);
+$data = 'SOK@'.$_GET['message'].'@'.$_GET['from'].'@'.$_GET['to'].'@'.$_GET['chatID'];  //data to be send
 
 $head = "GET / HTTP/1.1"."\r\n".
     "Host: $host"."\r\n".
@@ -21,6 +33,9 @@ $wsdata = fread($sock, 2000);  //receives the data included in the websocket pac
 $retdata = trim($wsdata,"\x00\xff"); //extracts data
 ////WebSocket handshake
 fclose($sock);
+
+// DB Eintrag
+DBHandler::getDB()->query("INSERT INTO chat_messages (author, msg, chat_id, timestamp) VALUES (?,?,?,?)", array($_GET['from'], htmlspecialchars($_GET['message']), $_GET['chatID'], time()));
 
 
 

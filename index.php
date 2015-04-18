@@ -56,7 +56,7 @@ DBHandler::initDB();
         url: "request.php?s=getID&id=" + split[2],
         success: function (result) {
        
-            notify("Sie haben eine neue Nachricht von " + result + " erhalten.")
+            notify("Sie haben eine neue Nachricht von " + result + " erhalten.", split[4])
         }
     });
         
@@ -104,7 +104,8 @@ DBHandler::initDB();
         </section>
         <div id="notification"></div>
         
-        <script type="text/javascript" href="js/login.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
        
 
         <div id="notificationArea">

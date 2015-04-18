@@ -78,18 +78,29 @@ if ($d['user2'] != $_SESSION['user_id']) {
                 
     
      </section>
+    <?php
+    $toID;
+    if($d['user1'] == $_SESSION['user_id']) {
+        $toID = $d['user2'];
+    }
+    else {
+        $toID = $d['user1'];
+    }
+    ?>
+    
       <section id="reply">
         <div class="container">
           <div class="col-md-12">
-              <input type="text" class="form-control" placeholder="Schreibe deine Antwort">
+              <input type="text" class="form-control" id="chatMessage" placeholder="Schreibe deine Antwort">
                 <span class="input-group-btn">
                     <button id="chatSend" class="btn btn-default yellow" type="button">Absenden</button>
                     <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" id="sessionId" />
-                    <!--<input type="hidden" value='<?php #echo ($d["user1"] == $_SESSION["user_id"]) ? "$d['user2']" : "$d['user1']"; ?>' id="sessionId" />-->
+                    <input type="hidden" value="<?php echo $toID;?>" id="toID" />
                 </span>
             
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />
               
             </div>
           </div>
-      </section>#
+      </section>
+          

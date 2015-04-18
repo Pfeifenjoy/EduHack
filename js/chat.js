@@ -1,25 +1,3 @@
-function WebSocketTest() {
-     var ws = new WebSocket("ws://127.0.0.1:9999");
-     var userID = "<?php echo base64_encode($_SESSION['user_id']);?>"
-     ws.onopen = function()    {
-        // Web Socket is connected, send data using send()
-        console.log("connected");
-         ws.send("ID:" + userID);
-         console.log("Autoisierungskey gesendet");
-     };
-      
-     ws.onmessage = function (msg)     { 
-        var received_msg = msg.data;
-        console.log("Message is received:" + msg.data);
-         alert("message recieved");
-     };
-      
-     ws.onclose = function()     { 
-        // websocket is closed.
-        console.log("connection closed");
-     };
-  }
-
 
 function addMessage(message) {
     var container = $('#messageDisplay');
@@ -34,7 +12,17 @@ function addMessage(message) {
     }
 }
 $(document).delegate("button#chatSend", "click", function() {
-    var message = $(this).val();
+    var message = $('#chatMessage').val();
     var userId = $('#sessionId').val();
+    var toId = $('#toID').val();
+    var chatId = /id=([0-9]+)/.exec(window.location + "");
+    var chatId = chatId[1];
+    
+    $.ajax({
+        url: 'http://127.0.0.1/EduHack/EduHack/websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
+        success: function(result) {
+            // append
+        }
+    })
 
 });

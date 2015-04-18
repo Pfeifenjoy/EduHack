@@ -46,6 +46,7 @@ $(function(){
 	    });
 	}
 	
+	elAskPublic.hide();
 	clear_results();
 	mode_empty();
 	

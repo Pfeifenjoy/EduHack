@@ -130,6 +130,7 @@ class WebSock:
         
     
     def isServerOrigin(self, data):
+        print("Data: " + str(data))
         split = data.split('@')
         return True if len(split) == 5 and split[0] == "SOK" else False
     
@@ -148,7 +149,8 @@ class WebSock:
         try:
             while 1:            
                 data = self.recv_data(client, addr)
-                if not self.hasPattern(data) and self.isServerOrigin(data) == True:
+                print("data kommt rein")
+                if  self.isServerOrigin(data) == True:
                     LogSys.writeData('signalLog', strftime("%Y-%m-%d %H:%M:%S", gmtime()) + ' ' + str(data))
                     print("Signal recieved @ " + strftime("%Y-%m-%d %H:%M:%S", gmtime()))                
                     self.sendData(data)

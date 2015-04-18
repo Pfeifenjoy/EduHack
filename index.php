@@ -10,11 +10,12 @@ function __autoload($class_name) {
 
 DBHandler::initDB();
 ?>
+
 <!DOCTYPE html>
 
 <html>
     <head>
-
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -43,20 +44,14 @@ DBHandler::initDB();
           </div>
         </nav>
         <section class="container">
-            <div id="mainsearch">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Gib hier dein Problem ein!">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button>
-                        </span>
-                    </input>
-                </div><!-- /input-group -->
-        <section class="wrapper">
             <div class="input-group" id="mainSearch">
-                <input type="text" class="form-control" placeholder="Search for...">
+                <input type="text" class="form-control" placeholder="Gib hier dein Problem ein!">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+                        <button class="btn btn-default" type="button">Los!</button>
                     </span>     
+            </div>
+            <div class="own-problem">
+                <p>… oder <a href="">erstelle dein eigenes Problem</a>.</p>
             </div>
             <?php	
             if(isset($_GET['s']) && !empty($_GET['s'])) {

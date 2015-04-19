@@ -96,6 +96,7 @@ if ($d['user2'] != $_SESSION['user_id']) {
                     <button id="chatSend" class="btn btn-default yellow" type="button">Absenden</button>
                     <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" id="sessionId" />
                     <input type="hidden" value="<?php echo $toID;?>" id="toID" />
+                    <input type="hidden" value="<?php echo $_SESSION['username']; ?>" id="username" />
                 </span>
             
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />

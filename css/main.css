@@ -396,6 +396,36 @@ footer a {
     margin: 10px;
 }
 
+img#profile-pic
+{
+	width: 100%;
+	border-radius: 100%;
+	margin-top: 15px;
+	box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+}
+
+span.key{
+	font-size: 0.9em;
+}
+
+ul#competence-container
+{
+	display: block;
+	margin: 0;
+	padding: 0;		
+}
+
+ul#competence-container li
+{
+	display: block;
+	margin: 0;
+	padding: 0;	
+}
+
+.no-chats, .no-questions
+{
+	font-style: italic;
+}
 
 /* Ask question page =========================*/
 

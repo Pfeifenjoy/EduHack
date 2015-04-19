@@ -55,7 +55,8 @@ DBHandler::initDB();
         console.log(msg);
         var to = $("#chatID");
         if(to && to.val() == split[4]){
-            appendMessage(msg);
+            appendMessage(split[1], true);
+            return;
         } 
         $.ajax({
         url: "request.php?s=getID&id=" + split[2],

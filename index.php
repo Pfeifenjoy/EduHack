@@ -37,8 +37,9 @@ DBHandler::initDB();
         <script src="js/notify.js"></script>
         <?php
         if(isset($_SESSION['username'])) {
-            echo '<script type="text/javascript">function WebSocketTest() {
-     var ws = new WebSocket("ws://127.0.0.1:9999");
+            echo '<script type="text/javascript">var ws;
+            function WebSocketTest() {
+      ws = new WebSocket("ws://127.0.0.1:9999");
      
      ws.onopen = function()    {
         // Web Socket is connected, send data using send()

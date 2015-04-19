@@ -20,7 +20,7 @@ function appendMessage(text, otherone){
     var newText =  '<p>' + text + '<span class="rightTime">' + (dd < 10 ? "0" + dd : dd) + '.'
                 + (mm < 10 ? "0" + mm : mm) + '.' + yyyy + ' - ' 
                 + (h < 10 ? "0" + h : h) + ':' + (m < 10 ? "0" + m: m) + '</span></p>';
-    if(alastUser == username && !otherone || lastUser != username && otherone) { 
+    if(lastUser == username && !otherone || lastUser != username && otherone) { 
         lastMessage.parent().append(newText);
     } else{
         var newMessage = '<div class="col-md-12 post clear">'

@@ -38,6 +38,18 @@ $myProfile = Profile::findOneByCurrentSession();
 		}
 	?>
 	</ul>
+    <div class="row">
+        <form method="post" action="http://ne4y-dev.de/DEV/EduHack/EduHack/ajax/competence.php">
+       <div class="col-lg-12">
+                <div class="input-group input-group-sm">
+                  <input name="newCompetence" type="text" class="form-control" placeholder="neue Kompetenz">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" id="addComp" type="button">Hinzufügen</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row --> 
+        </form>
     </div>
 </div>
 <div class="col-md-9">

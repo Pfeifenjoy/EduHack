@@ -38,7 +38,7 @@ DBHandler::initDB();
         <?php
         if(isset($_SESSION['username'])) {
             echo '<script type="text/javascript">function WebSocketTest() {
-     var ws = new WebSocket("ws://127.0.0.1:9999");
+     var ws = new WebSocket("ws://ne4y-dev.de:9999");
      
      ws.onopen = function()    {
         // Web Socket is connected, send data using send()

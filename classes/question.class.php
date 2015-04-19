@@ -81,6 +81,14 @@ class Question implements JsonSerializable{
 	}
 	
 	/**
+	 * @return int
+	 */
+	public function getAuthor()
+	{
+		return $this->author;
+	}
+	
+	/**
 	 * 
 	 * @return array
 	 */

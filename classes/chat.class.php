@@ -33,8 +33,15 @@ class Chat {
         return $chats;
     }
     
-    public function createChat($qID) {
-        $chats = DBHandler::getDB()->query("INSERT INTO");
+    private function getChatTitle($id) {
+        $d = DBHandler::getDB()->fetch_assoc("SELECT question FROM questions WHERE id=? LIMIT 1", array($id));
+        return $d['question'];
+    }
+    
+    public function createChat($qID, $toID) {
+        $chats = DBHandler::getDB()->query("INSERT INTO chat (user1, user2, chat_title) VALUES (?,?,?)", array($_SESSION['user_id'], $toID, $this->getChatTitle($qID)));
+        
+       # return DBHandler::getDB()->lastInsertId();
     }
 }
 ?>

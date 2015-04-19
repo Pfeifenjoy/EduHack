@@ -1,7 +1,6 @@
 
 function appendMessage(text, otherone){
     otherone = otherone || false;
-    var appendToOld = lastUser == username && !otherone || lastUser != username && otherone;
     var username;
     if(otherone) 
         username = $('#partnerName').val();
@@ -21,7 +20,7 @@ function appendMessage(text, otherone){
     var newText =  '<p>' + text + '<span class="rightTime">' + (dd < 10 ? "0" + dd : dd) + '.'
                 + (mm < 10 ? "0" + mm : mm) + '.' + yyyy + ' - ' 
                 + (h < 10 ? "0" + h : h) + ':' + (m < 10 ? "0" + m: m) + '</span></p>';
-    if(appendToOld) { 
+    if(alastUser == username && !otherone || lastUser != username && otherone) { 
         lastMessage.parent().append(newText);
     } else{
         var newMessage = '<div class="col-md-12 post clear">'

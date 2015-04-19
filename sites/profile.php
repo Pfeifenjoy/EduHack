@@ -41,18 +41,27 @@ $myProfile = Profile::findOneByCurrentSession();
     </div>
 </div>
 <div class="col-md-9">
+	<?php if ($profile->getId() != $myProfile->getId()){?>
 	<h3>Gemeinsame Chats</h3>
 	<?php 
 	$chats = new Chat();
 	$togetherChats = $chats->getTogetherChats($profile, $myProfile);
 	foreach ($togetherChats as $chat) {
 		?>
-		<span class="chat"><?php echo htmlentities($chat["chat_title"]);?></span>
+		<div class="chat <?php echo ($chat["status"])?"inactive":"active";?>"><?php echo htmlentities(utf8_encode($chat["chat_title"]));?><a href="#" class="pull-right continue">fortsetzen <span class="glyphicon glyphicon-arrow-right"></span></a><a href="#" class="pull-right view">ansehen <span class="glyphicon glyphicon-arrow-right"></span></a></div>
 		<?php
 	}
+	if(count($togetherChats) == 0)
+	{
+		echo '<p class="no-chats">Du hattest bisher keinen Kontakt mit '. htmlspecialchars($profile->getUsername()) . '.</p>';	
+	}
+	else 
+	{
+		echo "<br/>";
+	}
 	?>
-	<p class="no-chats">Du hattest bisher keinen Kontakt mit <?php echo htmlspecialchars($profile->getUsername())?>. </p>
 	<button class="btn btn-success">Chat beginnen</button>
+	<?php } ?>
 	<h3>Beantwortete Fragen</h3>
 	<p class="no-questions"><?php echo htmlspecialchars(strtoupper(substr($profile->getUsername(), 0, 1)) . substr($profile->getUsername(), 1))?> hat noch keine Frage beantwortet.</p>
 </div>

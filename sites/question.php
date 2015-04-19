@@ -65,6 +65,6 @@ $hashTags = Question::getHashtags($_GET['id']);
                     <a href="">★★★☆☆</a>
                   </div>
                   <div class="spacer"></div>
-                    <a class="btn btn-primary" href="index.php?s=startChat&q=<?php echo $_GET['id'];?>" >Problem lösen</a>
+                    <a class="btn btn-primary" href="index.php?s=startChat&a=<?php echo $q->author;?>&q=<?php echo $_GET['id'];?>" >Problem lösen</a>
                 </div>
             </div>

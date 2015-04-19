@@ -2,6 +2,12 @@
 
 class Chat {
     
+	public function getTogetherChats(Profile $p1, Profile $p2)
+	{
+		$chats = DBHandler::getDB()->fetch_all("SELECT * FROM chat WHERE (user1 = ? AND user2 = ?) OR (user1 = ? AND user2 = ?)", array($p1->getId(), $p2->getId(), $p2->getId(), $p1->getId()));
+		return $chats;
+	}
+	
     public function getChats() {
         $chats = DBHandler::getDB()->fetch_all("SELECT * FROM chat WHERE user1 = ? OR user2 = ?", array($_SESSION['user_id'], $_SESSION['user_id']));
         

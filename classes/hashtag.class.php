@@ -100,6 +100,20 @@ class Hashtag
 	}
 	
 	/**
+	 * @param Profile $profile
+	 */
+	public static function findManyByProfile(Profile $profile)
+	{
+		$db_result = DBHandler::getDB()->fetch_all("SELECT * FROM hashtags WHERE id IN (SELECT hashtag FROM account_hashtags WHERE account = ?)", array($profile->getId()));
+		$result = array();
+		foreach ($db_result as $entry) {
+			$result[] = new Hashtag($entry);
+		}
+		return $result;
+		
+	}
+	
+	/**
 	 * Creates a new Hashtag
 	 * @param string $hashtag The name of the new hashtag.
 	 * @return Hashtag

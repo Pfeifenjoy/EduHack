@@ -2,7 +2,7 @@
 if(isset($_SESSION['username'])) {
     $c = new Chat();
     $d = $c->createChat($_GET['q'], $_GET['a']);
-    echo'<meta http-equiv="refresh" content="0; url=index.php?s=chat&id='.$d.'" />';
+    echo'<meta http-equiv="refresh" content="0; URL=index.php?s=chat&id='.$d.'" />';
     
 }
 else {

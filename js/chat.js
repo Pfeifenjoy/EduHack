@@ -5,7 +5,7 @@ function appendMessage(text, otherone){
     if(otherone) 
         username = $('#partnerName').val();
     else
-        username = $('#username');
+        username = $('#username').val();
     if(!username) return;
     var date = new Date();
     var dd = date.getDate();

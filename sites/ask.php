@@ -1,12 +1,15 @@
-<textarea id="question" class="form-control" rows="2" placeholder="Wie kann dir geholfen werden? (#hashtags erlaubt)"></textarea>
+<form action="index.php?s=shareProblem" method="post">
+<textarea id="question" name="question" class="form-control" rows="2" placeholder="Wie kann dir geholfen werden? (#hashtags erlaubt)"></textarea>
+
 
 <div id="matching-persons" class="row">
 </div>
 
 <div id="ask-public" class="thumbnail">
 	<p>Keinen passenden Ansprechpartner gefunden?</p>
-	<button class="btn btn-primary">Stelle deine Frage öffentlich</button>
+	<button class="btn btn-primary" type="submit">Stelle deine Frage öffentlich</button>
 </div>
+</form>
 
 <template id="expert-preview">
 	<div class="col-md-4 person-container">

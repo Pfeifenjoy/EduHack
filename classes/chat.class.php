@@ -9,7 +9,7 @@ class Chat {
 	}
 	
     public function getChats() {
-        $chats = DBHandler::getDB()->fetch_all("SELECT * FROM chat WHERE user1 = ? OR user2 = ?", array($_SESSION['user_id'], $_SESSION['user_id']));
+        $chats = DBHandler::getDB()->fetch_all("SELECT * FROM chat WHERE (user1 = ? OR user2 = ?) AND status != 1", array($_SESSION['user_id'], $_SESSION['user_id']));
         
         return $chats;        
     }
@@ -50,9 +50,17 @@ class Chat {
         
         $id = DBHandler::getDB()->fetch_assoc("SELECT id FROM chat ORDER BY id DESC LIMIT 1");
         $id = $id['id'];
+        DBHandler::getDB()->query("UPDATE chat SET question=? WHERE id=? LIMIT 1", array($qID, $id));
         $ch = DBHandler::getDB()->query("INSERT INTO chat_messages (author, msg, chat_id, timestamp) VALUES (?,?,?,?)", array($toID, $title, $id, time()));
         
         return $id;
     }
+    
+    public function solveQuestion($q) {
+        DBHandler::getDB()->query("UPDATE questions SET status=? WHERE id=(SELECT question FROM chat WHERE id=?) LIMIT 1", array(1, $q));
+	if(DBHandler::getDB()->query("UPDATE chat SET status=? WHERE id=?", array(1, $q))) {
+		return true;
+	}
+    }	
 }
 ?>

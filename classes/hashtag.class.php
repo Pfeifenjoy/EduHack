@@ -74,7 +74,7 @@ class Hashtag
 	 * @param int $max_distance
 	 * @return array:Hashtag
 	 */
-	public static function findManyByLevenshtein($hashtag, $max_distance = 3)
+	public static function findManyByLevenshtein($hashtag, $max_distance = 2)
 	{
 		$db_result = DBHandler::getDB()->fetch_all("SELECT * FROM hashtags WHERE levenshtein(hashtag, ?) <= ?", array($hashtag, $max_distance));
 		$result = array();

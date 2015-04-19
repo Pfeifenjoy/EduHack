@@ -12,7 +12,6 @@ DBHandler::initDB();
 
 if(isset($_POST["newCompetence"]){
     $newComp = $_POST["newCompetence"];
-
 } else {
     die("query string missing");
 }

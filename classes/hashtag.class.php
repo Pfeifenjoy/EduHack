@@ -113,6 +113,19 @@ class Hashtag
 		
 	}
 	
+	public static function findOneOrCreate($hashtag)
+	{
+		$tag = self::findOneByHashtag($hashtag);
+		if($tag === false)
+		{
+			return self::create($hashtag);
+		}
+		else
+		{
+			return $tag;
+		}
+	}
+	
 	/**
 	 * Creates a new Hashtag
 	 * @param string $hashtag The name of the new hashtag.

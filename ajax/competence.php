@@ -10,9 +10,11 @@ require_once '../classes/profile.class.php';
 
 DBHandler::initDB();
 
-if(isset($_POST["newCompetence"]){
+if(isset($_POST["newCompetence"])){
     $newComp = $_POST["newCompetence"];
-
+	$myProfile = Profile::findOneByCurrentSession();
+	$hashtag = Hashtag::findOneOrCreate($newComp);
+	$myProfile->addCompetence($hashtag);
 } else {
     die("query string missing");
 }

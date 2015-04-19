@@ -5,12 +5,17 @@ $d            = $c->getChatById($_GET['id']);
 $chatMessages = $c->getChatMessages($_GET['id']);
 $oldAuthor                       = "-1";
 #var_dump($chatMessages[0]);
+    
+    
 $usernames[strval($_SESSION['user_id'])] = $_SESSION['username'];
 if ($d['user2'] != $_SESSION['user_id']) {
     $usernames[strval($d['user2'])] = $c->getUserNameById($d['user2']);
 } else {
     $usernames[strval($d['user1'])] = $c->getUserNameById($d['user1']);
 }
+    
+
+
 ?>
 
 

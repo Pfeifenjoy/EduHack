@@ -70,8 +70,8 @@ if ($d['user2'] != $_SESSION['user_id']) {
         </div>
                 <div class="col-md-3 side">
                   <div class="headline">
-                      <h1>Matheproblem<?php
-#echo $d['chat_title'];
+                      <h1><?php
+echo $d['chat_title'];
                           ?></h1></div>
                     <ul class="hashtags">
                       <li><a href="">#hashtag1</a></li>

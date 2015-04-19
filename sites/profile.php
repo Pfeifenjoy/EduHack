@@ -38,6 +38,7 @@ $myProfile = Profile::findOneByCurrentSession();
 		}
 	?>
 	</ul>
+    </div>
 </div>
 <div class="col-md-9">
 	<?php if ($profile->getId() != $myProfile->getId()){?>

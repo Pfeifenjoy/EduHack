@@ -43,8 +43,10 @@ $(document).delegate("button#chatSend", "click", function() {
         success: function(result) {
             
             appendMessage(message, $('#username').val());
-            inMessage.empty();
-            $('html, body').animate({scrolTop: $(document).height()}, 1000);
+            inMessage.val("");
+            $('html, body').animate({
+                scrollTop: $("#chatSend").offset().top
+            }, 1000);
         }
     });
     return false;

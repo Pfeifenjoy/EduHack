@@ -57,6 +57,25 @@ class Profile implements JsonSerializable
 		);
 	}
 	
+	/**
+	 * Associates a hashtag with the question.
+	 * @param Hashtag $hashtag
+	 */
+	public function addCompetence(Hashtag $hashtag)
+	{
+		DBHandler::getDB()->query("INSERT INTO account_hashtags (account, hashtag) VALUES (?, ?)", array($this->id, $hashtag->getId()));
+	}
+	
+	/**
+	 * Removes the given hashtag from the question.
+	 * @param Hashtag $hashtag
+	 */
+	public function removeCompetence(Hashtag $hashtag)
+	{
+		DBHandler::getDB()->query("DELETE FROM account_hashtags WHERE account = ? AND hashtag = ?", array($this->id, $hashtag->getId()));
+	}
+	
+	
 	//---- public --------------------------------------------------------------------------------
 	
 	//---- public static -------------------------------------------------------------------------

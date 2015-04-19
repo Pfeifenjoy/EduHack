@@ -4,7 +4,7 @@ function notify(text, cID) {
 
         var notification = '<div class="notification" role="alert">' + text
             + '<br />'
-            + '<a class="btn btn-success accept-btn" href="index.php?s=chat&id='+cID+'">Anzeigen</button>'
+            + '<a class="btn btn-success accept-btn" href="index.php?s=chat&id='+cID+'">Anzeigen</a>'
             + '<button class="btn btn-danger ignore-btn">Ignorieren</button>'
            + '</div>';
         notifyArea.append(notification);
@@ -12,6 +12,10 @@ function notify(text, cID) {
 }
 
 $(document).delegate(".ignore-btn", "click", function() {
+    $(this).parent().remove();
+});
+
+$(document).delegate(".accept-btn", "click", function() {
     $(this).parent().remove();
 });
 

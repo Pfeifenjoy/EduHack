@@ -1,4 +1,5 @@
 <?php
+if(isset($_SESSION['username'])) {
 $c            = new Chat();
 $d            = $c->getChatById($_GET['id']);
 $chatMessages = $c->getChatMessages($_GET['id']);
@@ -103,4 +104,10 @@ if ($d['user2'] != $_SESSION['user_id']) {
             </div>
           </div>
       </section>
+    <?php
+}
+else {
+    echo'<p class="error">Bitte logge dich ein.</p>';
+}
+?>
           

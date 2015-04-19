@@ -29,7 +29,7 @@ if(isset($_POST['id'])) {
     if($log->verifyLogin()) {
         if($log->doLogin()) {
             echo'<p class="success">Erfolgreich eingeloggt.</p>';    
-            echo'<meta http-equiv="refresh" content="2; url=index.php?s=home" />';
+            echo'<meta http-equiv="refresh" content="0; url=index.php?s=home" />';
         }
         else {
             Error::showError();

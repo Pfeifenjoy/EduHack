@@ -10,11 +10,15 @@ class Question implements JsonSerializable{
 	
 	private $question = "";
 	private $id;
-	
+	private $author;
+    
 	private function __construct($db_result){
 		$this->id = $db_result["id"];
-		$this->question = $db_result["question"];		
+		$this->question = $db_result["question"];
+        $this->author = $db_result["author"];
 	}
+    
+    
 	
 	//---- public ---------------------------------------------------------------------------------------
 	
@@ -83,7 +87,8 @@ class Question implements JsonSerializable{
 	public function jsonSerialize() {
 		return array(
 				"question" => utf8_encode($this->question),
-				"id" => $this->id
+				"id" => $this->id,
+                "author" => $this->author
 		);
 	}
 	
@@ -201,4 +206,17 @@ class Question implements JsonSerializable{
 			return new Question($new_entry);
 		}
 	}
+    
+    // get question data by id
+    public static function getQuestionData($id) {
+        $data = DBHandler::getDB()->fetch_assoc("SELECT * FROM questions WHERE id=? LIMIT 1", array($id));
+        
+        return new Question($data);
+    }
+    
+    public static function getHashtags($id) {
+        $data = DBHandler::getDB()->fetch_all("SELECT hashtag FROM hashtags WHERE id IN (SELECT hashtag FROM questions_hashtags WHERE question = ?)", array($id));
+        
+        return $data;
+    }
 }

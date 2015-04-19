@@ -4,13 +4,14 @@ function addQuestionResult(question) {
     if(destination) {
 
         var description = question.question ;
+        var qID = question.id;
 
         var tag = '<div class="col-md-6">'
            + '<div class="thumbnail">'
            + '<img src="">'
            + '<div class="caption">'
            + '<p>' + description + '</p>'
-           + '<p><button class="btn btn-primary" role="button">Anzeigen</button> <button class="btn btn-danger delete-btn" role="button">Löschen</button></p>'
+           + '<p><a href="index.php?s=question&id='+qID+'" class="btn btn-primary" role="button">Anzeigen</a> <button class="btn btn-danger delete-btn" role="button">Löschen</button></p>'
            + '</div>'
            + '</div>'
            + '</div> ';

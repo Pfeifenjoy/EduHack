@@ -1,11 +1,12 @@
 
 function appendMessage(text, otherone){
     otherone = otherone || false;
+    var appendToOld = lastUser == username && !otherone || lastUser != username && otherone;
     var username;
     if(otherone) 
         username = $('#partnerName').val();
     else
-        username = $('#username');
+        username = $('#username').val();
     if(!username) return;
     var date = new Date();
     var dd = date.getDate();
@@ -20,15 +21,14 @@ function appendMessage(text, otherone){
     var newText =  '<p>' + text + '<span class="rightTime">' + (dd < 10 ? "0" + dd : dd) + '.'
                 + (mm < 10 ? "0" + mm : mm) + '.' + yyyy + ' - ' 
                 + (h < 10 ? "0" + h : h) + ':' + (m < 10 ? "0" + m: m) + '</span></p>';
-    if(lastUser == username.val() && !otherone || lastUser != username.val() && otherone){
-        
+    if(appendToOld) { 
         lastMessage.parent().append(newText);
     } else{
         var newMessage = '<div class="col-md-12 post clear">'
             + '<div class="col-md-2">'
             + '<div class="user1 user-data">'
             + ' <img src="img/login_bild.png" alt="Benutzerbild" />'
-            + '<a href="">' + username.val() + '</a>'
+            + '<a href="">' + username + '</a>'
             + '</div></div>'
             + '<div class="col-md-10 content" id="chatFeed">'
             + newText
@@ -38,8 +38,8 @@ function appendMessage(text, otherone){
 }
 
 $(document).delegate("button#chatSend", "click", function() {
-    val inMessage = $('#chatMessage');
-    var submit-btn = $(this);
+    var inMessage = $('#chatMessage');
+    var submitbtn = $(this);
     var message = inMessage.val();
     var userId = $('#sessionId').val();
     var toId = $('#toID').val();
@@ -51,7 +51,7 @@ $(document).delegate("button#chatSend", "click", function() {
         success: function(result) {
             appendMessage(message);
             inMessage.empty();
-            $('html, body').animate({scrollDown: ($(submit-btn).offset().bottom())}, "slow");
+            $('html, body').animate({scrolTop: $(document).height()}, 1000);
         }
     });
     return false;

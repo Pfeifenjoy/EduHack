@@ -56,11 +56,11 @@ DBHandler::initDB();
         var to = $("#chatID");
         if(to && to.val() == split[4]){
             appendMessage(split[1], true);
-            return;
         } 
         $.ajax({
         url: "request.php?s=getID&id=" + split[2],
         success: function (result) {
+            console.log(split[4])
        
             notify("Sie haben eine neue Nachricht von " + result + " erhalten.", split[4])
         }

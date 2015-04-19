@@ -28,6 +28,7 @@ DBHandler::initDB();
         <script src="js/navi.js"></script>
         <script src="js/page.js"></script>
         <script src="js/search.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css" type="text/css">
@@ -51,7 +52,11 @@ DBHandler::initDB();
         var received_msg = msg.data;
         console.log("Message is received:" + msg.data);
         split = msg.data.split("@");
-        
+        console.log(msg);
+        var to = $("#chatID");
+        if(to && to.val() == split[4]){
+            appendMessage(msg);
+        } 
         $.ajax({
         url: "request.php?s=getID&id=" + split[2],
         success: function (result) {
@@ -105,7 +110,6 @@ DBHandler::initDB();
         <div id="notification"></div>
         
         <script type="text/javascript" src="js/login.js"></script>
-        <script type="text/javascript" src="js/chat.js"></script>
        
 
         <div id="notificationArea">

@@ -47,7 +47,7 @@ $(document).delegate("button#chatSend", "click", function() {
     var chatId = chatId[1];
     
     $.ajax({
-        url: 'http://ne4y-dev/DEV/EduHack/EduHack/websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
+        url: 'http://ne4y-dev.de/DEV/EduHack/EduHack/websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
         success: function(result) {
             appendMessage(message);
             inMessage.empty();

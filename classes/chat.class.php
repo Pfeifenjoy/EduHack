@@ -45,9 +45,14 @@ class Chat {
     }
     
     public function createChat($qID, $toID) {
-        $chats = DBHandler::getDB()->query("INSERT INTO chat (user1, user2, chat_title) VALUES (?,?,?)", array($_SESSION['user_id'], $toID, $this->getChatTitle($qID)));
+        $title = $this->getChatTitle($qID);
+        $chats = DBHandler::getDB()->query("INSERT INTO chat (user1, user2, chat_title) VALUES (?,?,?)", array($_SESSION['user_id'], $toID, $title));
         
-       # return DBHandler::getDB()->lastInsertId();
+        $id = DBHandler::getDB()->fetch_assoc("SELECT id FROM chat ORDER BY id DESC LIMIT 1");
+        $id = $id['id'];
+        $ch = DBHandler::getDB()->query("INSERT INTO chat_messages (author, msg, chat_id, timestamp) VALUES (?,?,?,?)", array($toID, $title, $id, time()));
+        
+        return $id;
     }
 }
 ?>

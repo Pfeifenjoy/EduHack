@@ -25,15 +25,19 @@
 <div class="clear"></div>
 <div>
     <h3>Kompetenzen</h3>
-    <span class="label label-default">essen</span>
+    <div id="compArea">
+        <span class="label label-default">essen <span class="compRemove glyphicon glyphicon-remove"></span></span>
+    </div>
     <br />
     <br />
-    <form method="post" action="" class="col-md-4" id="addCompetence">
+    <form method="post" action="profile" class="col-md-4" id="addCompetence">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="neue Kompetenz" />
+            <input id="newComp" type="text" class="form-control" placeholder="neue Kompetenz" />
             <span class="input-group-btn">
-                <input type="submit" class="btn btn-primary" value="Hinzufügen" />
+                <input type="submit" class="btn btn-primary" value="Hinzufügen" id="addComp" />
             </span>
         </div>
     </form>
 </div>
+
+<script src="js/profile.js"></script>

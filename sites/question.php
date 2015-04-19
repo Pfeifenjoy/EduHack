@@ -18,9 +18,6 @@ $hashTags = Question::getHashtags($_GET['id']);
                         ?>
                     </ul>
                   </div>
-                  <div class="description clear">
-                    <input class="btn btn-primary" type="" value="Problem lösen" />
-                  </div>
                   
                   <div class="col-md-12 recommended-wrapper clear">
                     <h2>Ähnliche Probleme</h2>
@@ -65,6 +62,5 @@ $hashTags = Question::getHashtags($_GET['id']);
                     <a href="">★★★☆☆</a>
                   </div>
                   <div class="spacer"></div>
-                    <a class="btn btn-primary" href="index.php?s=startChat&a=<?php echo $q->author;?>&q=<?php echo $_GET['id'];?>" >Problem lösen</a>
-                </div>
+                    <?php if($q->status) { echo'<p class="success">Dieses Problem ist bereits gelöst.</p>'; } else { ?> <a class="btn btn-primary" href="index.php?s=startChat&a=<?php echo $q->author;?>&q=<?php echo $_GET['id'];?>" >Problem lösen</a> <?php } ?>               </div>
             </div>

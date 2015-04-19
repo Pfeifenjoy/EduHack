@@ -11,11 +11,12 @@ class Question implements JsonSerializable{
 	private $question = "";
 	private $id;
 	private $author;
-    
+        private $status;
 	private function __construct($db_result){
 		$this->id = $db_result["id"];
 		$this->question = $db_result["question"];
         $this->author = $db_result["author"];
+        $this->status = $db_result["status"];
 	}
     
     
@@ -88,7 +89,8 @@ class Question implements JsonSerializable{
 		return array(
 				"question" => utf8_encode($this->question),
 				"id" => $this->id,
-                "author" => $this->author
+                "author" => $this->author,
+                "status" => $this->status
 		);
 	}
 	

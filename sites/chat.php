@@ -107,7 +107,7 @@ echo $d['chat_title'];
                     <input type="hidden" value="<?php echo Chat::getUserNameId($toID); ?>" id="partnerName" />
                 </span>
             
-            <input class="btn btn-primary" type="" value="Problemlösung abschließen" />
+            <a class="btn btn-primary" type="" href="index.php?s=problemSolved&id=<?php echo $_GET['id'];?>">Problemlösung abschließen</a>
               
             </div>
           </div>

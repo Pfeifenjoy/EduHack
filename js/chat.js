@@ -8,7 +8,7 @@ function appendMessage(text, username){
     var h = date.getHours();
     var m = date.getMinutes();
     var lastMessage =  $('body .content p:last-child');
-    lastMessage = l$(lastMessage[lastMessage.length -1]);
+    lastMessage = $(lastMessage[lastMessage.length -1]);
     var lastUser = lastMessage.parent().parent().last().children().first().children().first().children().last().text();
     var newText =  '<p>' + text + '<span class="rightTime">' + (dd < 10 ? "0" + dd : dd) + '.'
                 + (mm < 10 ? "0" + mm : mm) + '.' + yyyy + ' - ' 

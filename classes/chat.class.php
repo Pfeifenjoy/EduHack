@@ -15,6 +15,13 @@ class Chat {
         
     }
     
+     public static function getUserNameId($id) {
+        $username = DBHandler::getDB()->fetch_assoc("SELECT username FROM account WHERE id=? LIMIT 1", array($id));
+        
+        return $username['username'];
+        
+    }
+    
     public function getChatById($id) {
         $chats = DBHandler::getDB()->fetch_assoc("SELECT * FROM chat WHERE id=? LIMIT 1", array($id));
         return $chats;
@@ -24,6 +31,10 @@ class Chat {
         $chats = DBHandler::getDB()->fetch_all("SELECT * FROM chat_messages WHERE chat_id=?", array($id));
         
         return $chats;
+    }
+    
+    public function createChat($qID) {
+        $chats = DBHandler::getDB()->query("INSERT INTO");
     }
 }
 ?>

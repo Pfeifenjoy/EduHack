@@ -427,6 +427,35 @@ ul#competence-container li
 	font-style: italic;
 }
 
+div.chat
+{
+	padding: 10px;
+	margin-bottom: 3px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+div.chat.active:HOVER
+{
+	background-color: #FFF;
+}
+
+div.chat.inactive:HOVER
+{
+	background-color: #CCC;
+}
+
+div.chat a
+{
+	display: none;
+}
+
+div.chat.active:HOVER a.continue, div.chat.inactive:HOVER a.view
+{
+	display: inline;
+}
+
+
 /* Ask question page =========================*/
 
 #matching-persons

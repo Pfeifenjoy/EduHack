@@ -11,11 +11,13 @@ class Question implements JsonSerializable{
 	private $question = "";
 	private $id;
 	private $author;
-    
+    private $status;
+	
 	private function __construct($db_result){
 		$this->id = $db_result["id"];
 		$this->question = $db_result["question"];
         $this->author = $db_result["author"];
+        $this->status = $db_result["status"];
 	}
     
     
@@ -44,6 +46,11 @@ class Question implements JsonSerializable{
 	public function setQuestion($question)
 	{
 		$this->question = $question;
+	}
+	
+	public function isSolved()
+	{
+		return $this->status == 1;
 	}
 	
 	/**
@@ -143,7 +150,7 @@ class Question implements JsonSerializable{
 	}
 	
 	/**
-	 * Returns a (properly ranked) list of search results (just with public solutions)
+	 * Returns a (properly ranked) list of search results (just soved ones)
 	 * @param array:string $keywords
 	 */
 	public static function findManyByKeywords($keywords)
@@ -189,8 +196,7 @@ class Question implements JsonSerializable{
 		// filter for questions with public solutions
 		$result = array();
 		foreach ($questions as $question) {
-			$nr_public_solutions = DBHandler::getDB()->num_rows("SELECT * FROM solutions WHERE question = ? AND public = 1", array($question["question"]->getId()));
-			if($nr_public_solutions > 0)
+			if($question["question"]->isSolved())
 			{
 				$result[] = $question["question"];
 			}

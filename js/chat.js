@@ -1,5 +1,6 @@
 
 function appendMessage(text, otherone){
+    otherone = otherone || false;
     var username = $('#username');
     if(!username) return;
     var date = new Date();

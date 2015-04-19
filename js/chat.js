@@ -1,5 +1,5 @@
 
-function appendMessage(text){
+function appendMessage(text, otherone){
     var username = $('#username');
     if(!username) return;
     var date = new Date();
@@ -15,7 +15,7 @@ function appendMessage(text){
     var newText =  '<p>' + text + '<span class="rightTime">' + (dd < 10 ? "0" + dd : dd) + '.'
                 + (mm < 10 ? "0" + mm : mm) + '.' + yyyy + ' - ' 
                 + (h < 10 ? "0" + h : h) + ':' + (m < 10 ? "0" + m: m) + '</span></p>';
-    if(lastUser == username.val()){
+    if(lastUser == username.val() && !otherone || lastUser != username.val() && otherone){
         lastMessage.parent().append(newText);
     } else{
         var newMessage = '<div class="col-md-12 post clear">'
@@ -39,7 +39,7 @@ $(document).delegate("button#chatSend", "click", function() {
     var chatId = chatId[1];
     
     $.ajax({
-        url: 'websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
+        url: 'http://ne4y-dev/DEV/EduHack/EduHack/websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
         success: function(result) {
             appendMessage(message);
         }

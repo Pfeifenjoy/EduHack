@@ -11,8 +11,8 @@ class Question implements JsonSerializable{
 	private $question = "";
 	private $id;
 	private $author;
-        private $status;
-	private function __construct($db_result){
+        public $status = 0;
+       	private function __construct($db_result){
 		$this->id = $db_result["id"];
 		$this->question = $db_result["question"];
         $this->author = $db_result["author"];
@@ -79,6 +79,14 @@ class Question implements JsonSerializable{
 	public function getNrOfHashtags()
 	{
 		return DBHandler::getDB()->num_rows("SELECT * FROM hashtags WHERE id IN (SELECT hashtag FROM questions_hashtags WHERE question = ?)", array($this->id));
+	}
+	
+	/**
+	 * @return int
+	 */
+	public function getAuthor()
+	{
+		return $this->author;
 	}
 	
 	/**

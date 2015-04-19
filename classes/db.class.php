@@ -9,8 +9,9 @@ class DB {
     
     public function __construct($host, $db, $user, $pw) {
         try {
-            $this->con = @new PDO('mysql:host=' . $host . ';dbname=' . $db . '', $user, $pw, array(
-                PDO::ATTR_PERSISTENT => true
+            $this->con = @new PDO('mysql:host=' . $host . ';dbname=' . $db . ';charset=utf8', $user, $pw, array(
+                PDO::ATTR_PERSISTENT => true,
+           		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"
             ));
             $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }

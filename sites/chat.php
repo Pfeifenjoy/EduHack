@@ -95,9 +95,10 @@ echo $d['chat_title'];
     ?>
     
       <section id="reply">
-        <div class="container">
+        <div class="row">
           <div class="col-md-12">
-              <input type="text" class="form-control" id="chatMessage" placeholder="Schreibe deine Antwort">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" id="chatMessage" placeholder="Schreibe deine Antwort">
                 <span class="input-group-btn">
                     <button id="chatSend" class="btn btn-default yellow" type="button">Absenden</button>
                     <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" id="sessionId" />
@@ -108,6 +109,7 @@ echo $d['chat_title'];
                 </span>
             
             <a class="btn btn-primary" type="" href="index.php?s=problemSolved&id=<?php echo $_GET['id'];?>">Problemlösung abschließen</a>
+            </div>
               
             </div>
           </div>

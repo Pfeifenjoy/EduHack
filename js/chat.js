@@ -29,15 +29,13 @@ function appendMessage(text, username){
     }
 }
 
-$(document).delegate("button#chatSend", "click", function() {
+function update(){
     var inMessage = $('#chatMessage');
-    var submitbtn = $(this);
     var message = inMessage.val();
     var userId = $('#sessionId').val();
     var toId = $('#toID').val();
     var chatId = /id=([0-9]+)/.exec(window.location + "");
     var chatId = chatId[1];
-    
     $.ajax({
         url: 'http://ne4y-dev.de/DEV/EduHack/EduHack/websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
         success: function(result) {
@@ -49,6 +47,17 @@ $(document).delegate("button#chatSend", "click", function() {
             }, 1000);
         }
     });
+}
+
+$(document).delegate("button#chatSend", "click", function() {
+    update();
     return false;
 
+});
+
+$(document).delegate("input#chatMessage", "keypress", function(e){
+    if(e.which === 13) {
+       update();
+      return false; 
+    }
 });

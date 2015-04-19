@@ -108,6 +108,7 @@ if ($d['user2'] != $_SESSION['user_id']) {
                     <input type="hidden" value="<?php echo Chat::getUserNameId($toID); ?>" id="partnerName" />
                 </span>
             </div>
+            <div class="clear"></div>
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />
               
             </div>

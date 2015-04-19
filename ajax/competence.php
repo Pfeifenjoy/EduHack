@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 require_once '../inc/config.inc.php';
 require_once '../classes/dbhandler.class.php';
 require_once '../classes/db.class.php';
@@ -10,8 +10,13 @@ require_once '../classes/profile.class.php';
 
 DBHandler::initDB();
 
-if(isset($_POST["newCompetence"]){
+if(isset($_POST["newCompetence"])){
     $newComp = $_POST["newCompetence"];
+    echo $newComp;
+	$myProfile = Profile::findOneByCurrentSession();
+	$hashtag = Hashtag::findOneOrCreate($newComp);
+	$myProfile->addCompetence($hashtag);
 } else {
     die("query string missing");
 }
+?>

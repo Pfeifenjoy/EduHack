@@ -87,3 +87,21 @@ $(document).delegate("a", "click", function () {
     
     return false;
 });
+
+$(document).delegate("#addComp", "click", function() {
+    var input = $('#newCompetence').val();
+    $('#newCompetence').val("");
+    $.ajax({
+        type: "POST",
+        url: "ajax/competence.php",
+        data: {
+            newCompetence: input
+        },
+        success: function(result){
+
+            $('#competence-container').append('<li>' + result + '</li>');
+        },
+        
+        
+    });
+});

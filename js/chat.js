@@ -1,7 +1,11 @@
 
 function appendMessage(text, otherone){
     otherone = otherone || false;
-    var username = $('#username');
+    var username;
+    if(otherone) 
+        username = $('#partnerName').val();
+    else
+        username = $('#username');
     if(!username) return;
     var date = new Date();
     var dd = date.getDate();
@@ -17,6 +21,7 @@ function appendMessage(text, otherone){
                 + (mm < 10 ? "0" + mm : mm) + '.' + yyyy + ' - ' 
                 + (h < 10 ? "0" + h : h) + ':' + (m < 10 ? "0" + m: m) + '</span></p>';
     if(lastUser == username.val() && !otherone || lastUser != username.val() && otherone){
+        
         lastMessage.parent().append(newText);
     } else{
         var newMessage = '<div class="col-md-12 post clear">'
@@ -33,7 +38,9 @@ function appendMessage(text, otherone){
 }
 
 $(document).delegate("button#chatSend", "click", function() {
-    var message = $('#chatMessage').val();
+    val inMessage = $('#chatMessage');
+    var submit-btn = $(this);
+    var message = inMessage.val();
     var userId = $('#sessionId').val();
     var toId = $('#toID').val();
     var chatId = /id=([0-9]+)/.exec(window.location + "");
@@ -43,6 +50,8 @@ $(document).delegate("button#chatSend", "click", function() {
         url: 'http://ne4y-dev/DEV/EduHack/EduHack/websocketclient/sender.php?to='+toId+'&from='+userId+'&message='+message+'&chatID='+chatId,
         success: function(result) {
             appendMessage(message);
+            inMessage.empty();
+            $('html, body').animate({scrollDown: ($(submit-btn).offset().bottom())}, "slow");
         }
     });
     return false;

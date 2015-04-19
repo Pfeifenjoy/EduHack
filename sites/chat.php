@@ -99,6 +99,7 @@ if ($d['user2'] != $_SESSION['user_id']) {
                     <input type="hidden" value="<?php echo $toID;?>" id="toID" />
                     <input type="hidden" value="<?php echo $_SESSION['username']; ?>" id="username" />
                     <input type="hidden" value="<?php echo $_GET['id']; ?>" id="chatID" />
+                    <input type="hidden" value="<?php echo Chat::getUserNameId($toId); ?>" id="partnerName" />
                 </span>
             
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />

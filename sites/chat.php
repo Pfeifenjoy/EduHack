@@ -70,8 +70,8 @@ if ($d['user2'] != $_SESSION['user_id']) {
         </div>
                 <div class="col-md-3 side">
                   <div class="headline">
-                      <h1>Matheproblem<?php
-#echo $d['chat_title'];
+                      <h1><?php
+echo $d['chat_title'];
                           ?></h1></div>
                     <ul class="hashtags">
                       <li><a href="">#hashtag1</a></li>
@@ -95,9 +95,10 @@ if ($d['user2'] != $_SESSION['user_id']) {
     ?>
     
       <section id="reply">
-        <div class="container">
+        <div class="row">
           <div class="col-md-12">
-              <input type="text" class="form-control" id="chatMessage" placeholder="Schreibe deine Antwort">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" id="chatMessage" placeholder="Schreibe deine Antwort">
                 <span class="input-group-btn">
                     <button id="chatSend" class="btn btn-default yellow" type="button">Absenden</button>
                     <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" id="sessionId" />
@@ -107,6 +108,9 @@ if ($d['user2'] != $_SESSION['user_id']) {
                     <input type="hidden" value="<?php echo Chat::getUserNameId($toID); ?>" id="partnerName" />
                 </span>
             
+            <a class="btn btn-primary" type="" href="index.php?s=problemSolved&id=<?php echo $_GET['id'];?>">Problemlösung abschließen</a>
+            </div>
+            <div class="clear"></div>
             <input class="btn btn-primary" type="" value="Problemlösung abschließen" />
               
             </div>

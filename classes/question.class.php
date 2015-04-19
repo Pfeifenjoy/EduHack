@@ -103,7 +103,8 @@ class Question implements JsonSerializable{
 		return array(
 				"question" => utf8_encode($this->question),
 				"id" => $this->id,
-                "author" => $this->author
+                "author" => $this->author,
+                "status" => $this->status
 		);
 	}
 	

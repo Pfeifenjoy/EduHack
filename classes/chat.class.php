@@ -32,5 +32,9 @@ class Chat {
         
         return $chats;
     }
+    
+    public function createChat($qID) {
+        $chats = DBHandler::getDB()->query("INSERT INTO");
+    }
 }
 ?>
